@@ -1,30 +1,30 @@
 import {
     HomeOutlined,
     LaptopOutlined,
-    MobileOutlined,
-    TabletOutlined,
     LogoutOutlined,
-} from '@ant-design/icons';
-import { Layout, Menu } from 'antd';
-import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import './style.css';
-import { functions } from '../../functionsCommon';
-import { Badge } from 'antd';
-import {useSelector} from "react-redux";
+    MobileOutlined,
+    ShoppingCartOutlined,
+    TabletOutlined,
+} from "@ant-design/icons";
+import { Badge, Layout, Menu } from "antd";
+import React from "react";
+import { useSelector } from "react-redux";
+import { Link, withRouter } from "react-router-dom";
+import { functions } from "../../functionsCommon";
+import "./style.css";
 
 const { Header } = Layout;
 const { Toast } = functions;
 
 const onLogoutAccount = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
     Toast.fire({
-        icon: 'success',
-        title: 'Đăng xuất thành công !',
+        icon: "success",
+        title: "Đăng xuất thành công !",
     });
 };
 
-const HeaderPage = (props : any) => {
+const HeaderPage = (props: any) => {
     const { url } = props.match;
     const dataCart = useSelector((state: any) => state.dataCart);
     return (
@@ -32,7 +32,7 @@ const HeaderPage = (props : any) => {
             <Header>
                 <Menu theme="dark" mode="horizontal">
                     <Menu.Item
-                        className={url === '/' ? 'ant-menu-item-selected' : ''}
+                        className={url === "/" ? "ant-menu-item-selected" : ""}
                     >
                         <span className="menu-item">
                             <span>
@@ -45,9 +45,9 @@ const HeaderPage = (props : any) => {
                     </Menu.Item>
                     <Menu.Item
                         className={
-                            url === '/smathphone'
-                                ? 'ant-menu-item-selected'
-                                : ''
+                            url === "/smathphone"
+                                ? "ant-menu-item-selected"
+                                : ""
                         }
                     >
                         <span className="menu-item">
@@ -61,7 +61,7 @@ const HeaderPage = (props : any) => {
                     </Menu.Item>
                     <Menu.Item
                         className={
-                            url === '/tablet' ? 'ant-menu-item-selected' : ''
+                            url === "/tablet" ? "ant-menu-item-selected" : ""
                         }
                     >
                         <span className="menu-item">
@@ -75,7 +75,7 @@ const HeaderPage = (props : any) => {
                     </Menu.Item>
                     <Menu.Item
                         className={
-                            url === '/laptop' ? 'ant-menu-item-selected' : ''
+                            url === "/laptop" ? "ant-menu-item-selected" : ""
                         }
                     >
                         <span className="menu-item">
@@ -98,9 +98,16 @@ const HeaderPage = (props : any) => {
                             </span>
                         </span>
                     </Menu.Item>
-                    <Menu.Item>
+                    <Menu.Item
+                        className={
+                            url === "/cart" ? "ant-menu-item-selected" : ""
+                        }
+                    >
                         <Badge count={dataCart.length}>
                             <span className="menu-item">
+                                <span>
+                                    <ShoppingCartOutlined />
+                                </span>
                                 <span>
                                     <Link to="/cart">Giỏ Hàng</Link>
                                 </span>

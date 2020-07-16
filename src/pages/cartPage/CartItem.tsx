@@ -39,7 +39,7 @@ const CartItem = (props: IProps) => {
                         min={1}
                         max={10}
                         value={props.item.quantity}
-                        onChange={() => onChangeQuantity(props.item.quantity++)}
+                        onChange={(value: any) => onChangeQuantity(value)}
                     />
                 </div>
             </div>
@@ -47,4 +47,4 @@ const CartItem = (props: IProps) => {
         </>
     );
 };
-export default CartItem;
+export default React.memo(CartItem);

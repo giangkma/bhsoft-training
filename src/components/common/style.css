@@ -21,7 +21,41 @@ img {
     width: 60%;
     margin: 0 auto;
 }
-
+a:hover{
+    text-decoration: none;
+}
 li.ant-menu-item.ant-menu-item-only-child:nth-child(10) {
     float: right;
+}
+li.ant-menu-item:hover{
+    background:#1890ff!important;
+}
+span.menu-item a{
+    font-size: 1.25rem;
+}
+span.menu-item .anticon {
+    font-size: 1.4rem;
+}
+.ant-layout-header{
+    overflow: hidden;
+}
+@media (min-width: 425px) {
+    .ant-layout-header,.cart-container {
+        padding: 0 0rem!important;
+    }
+}
+@media (min-width: 768px) {
+    .ant-layout-header,.cart-container {
+        padding: 0 2rem!important;
+    }
+}
+@media (min-width: 1025px) {
+    .ant-layout-header,.cart-container {
+        padding: 0 10rem!important;
+    }
+}
+@media (min-width: 1440px) {
+    .ant-layout-header,.cart-container {
+        padding: 0 30rem!important;
+    }
 }

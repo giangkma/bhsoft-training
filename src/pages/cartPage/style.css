@@ -1,5 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
 .support-section svg {
     font-size: 35px;
+}
+.cart-container {
+    font-family: 'Quicksand', sans-serif;
+}
+.cart-container p{
+    font-size: 1.4rem!important;
 }
 .cart-item {
     display: flex;
@@ -31,17 +39,24 @@
     float: right;
     margin-right: 1rem;
 }
-.cart-result h5{
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+.cart-result p{
     margin-right: 1rem;
+    text-align: right;
 }
 .cart-result button{
     font-size: 1.8rem;
     background: rgb(255, 103, 1);
     color: #fff;
     border-radius: .5rem;
+    margin-left: 1rem;
 }
 .cart-result button:hover{
-    background:rgb(202, 98, 0);
+    background:rgb(245, 133, 29);
 }
 
 .cart-item-icon{
@@ -58,4 +73,17 @@
 .cart-item-icon.delete:hover{
     font-size: 2.2rem;
     transition: all .3s;
+}
+.ant-divider-inner-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ant-divider-inner-text > span{
+    padding: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    color: #f56200;
 }

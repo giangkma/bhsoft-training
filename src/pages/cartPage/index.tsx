@@ -1,12 +1,13 @@
-import { EditOutlined } from '@ant-design/icons';
-import { Divider } from 'antd';
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { appActions } from '../../actions';
-import PageLayout from '../../components/Pagelayout';
-import { functions } from '../../functionsCommon';
-import CartItem from './CartItem';
-import './style.css';
+import { EditOutlined, ShoppingCartOutlined } from "@ant-design/icons";
+import { Divider } from "antd";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { appActions } from "../../actions";
+import PageLayout from "../../components/Pagelayout";
+import { functions } from "../../functionsCommon";
+import CartItem from "./CartItem";
+import "./style.css";
+
 const { Toast } = functions;
 
 const CartPage = () => {
@@ -14,8 +15,6 @@ const CartPage = () => {
     const dataCart = useSelector((state: object | any) => state.dataCart);
     const onChangeQuantity = (quantity: number, id: string) => {
         if (id && quantity) {
-            console.log(quantity);
-            
             dispatch(appActions.editQuantityProduct(id, quantity));
         }
     };
@@ -24,21 +23,21 @@ const CartPage = () => {
             dispatch(appActions.deleteProduct(id));
             setTimeout(() => {
                 Toast.fire({
-                    icon: 'success',
-                    title: 'Xóa thành công !',
+                    icon: "success",
+                    title: "Xóa thành công !",
                 });
             }, 300);
         }
     };
     const renderTotalPrice = (dataCart: []) => {
         let totalPrice = 0;
-        dataCart.map((item : object | any) => {
+        dataCart.map((item: object | any) => {
             totalPrice = totalPrice + item.price * item.quantity;
             return totalPrice;
         });
         return functions.formatTotalPrice(totalPrice);
     };
-    const renderListProductsCart = (data : []) => {
+    const renderListProductsCart = (data: []) => {
         let xhtml = null;
         xhtml = data.map((item, index) => {
             return (
@@ -56,18 +55,23 @@ const CartPage = () => {
     return (
         <>
             <PageLayout>
-                <Divider orientation="left">Giỏ hàng của bạn</Divider>
                 <div className="cart-container">
+                    <Divider orientation="left">
+                        <span>
+                            <ShoppingCartOutlined />
+                        </span>{" "}
+                        Giỏ hàng của bạn
+                    </Divider>
                     <div className="cart-item header">
                         <EditOutlined className="cart-item-icon" />
                         <div className="cart-item-name">
-                            <h5>Sản phẩm</h5>
+                            <p>Sản phẩm</p>
                         </div>
                         <div className="cart-item-price">
-                            <h5>Đơn giá</h5>
+                            <p>Đơn giá</p>
                         </div>
                         <div className="cart-item-quantity">
-                            <h5>Số lượng</h5>
+                            <p>Số lượng</p>
                         </div>
                     </div>
                     {dataCart ? (
@@ -78,13 +82,13 @@ const CartPage = () => {
                     {dataCart ? (
                         <div className="cart-result">
                             <div>
-                                <h5>
+                                <p>
                                     Tổng tiền hàng ( {dataCart.length} sản phẩm
-                                    ) :{' '}
-                                    <span style={{ color: 'red' }}>
+                                    ) :{" "}
+                                    <span style={{ color: "red" }}>
                                         {renderTotalPrice(dataCart)}
                                     </span>
-                                </h5>
+                                </p>
                             </div>
                             <div>
                                 <button>Thanh toán</button>

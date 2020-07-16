@@ -87,7 +87,7 @@ const TabletPage = () => {
         return xhtml;
     };
 
-    const itemsBreadcrumb = ["Home","Điện thoại"];
+    const itemsBreadcrumb = ["Home","Tablet"];
 
     return (
         <>

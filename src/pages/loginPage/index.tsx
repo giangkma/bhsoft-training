@@ -1,40 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import { functions } from '../../functionsCommon';
-import { api } from '../../service/api';
-import { withRouter } from 'react-router';
-import './style.css';
+import React, { useState, useEffect } from "react";
+import { functions } from "../../functionsCommon";
+import { api } from "../../service/api";
+import { withRouter } from "react-router";
+import "./style.css";
 
 const { Toast } = functions;
 
 const LoginPage = (props: any) => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
-    const onChange = (e:any) => {
-        console.log(e.target.value);
-        // setUsername(e.target.value);
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    const onChange = (e: any) => {
+        e.target.name === "username"
+            ? setUsername(e.target.value)
+            : setPassword(e.target.value);
     };
     useEffect(() => {
         const checkLoginUser = functions.checkLoginUser();
         if (checkLoginUser) {
-            props.history.push('/');
+            props.history.push("/");
         }
-    }, []);
-    const submitForm = (e:any) => {
+    }, [props.history]);
+    const submitForm = (e: any) => {
         e.preventDefault();
         if (!username || !password) {
-            setError('Hãy nhập đủ Tài khoản và mật khẩu');
+            setError("Hãy nhập đủ Tài khoản và mật khẩu");
         } else {
             api.checkLoginUser(username, password).then((res: any) => {
                 if (res.STATUS === 400) {
-                    setError('Tài khoản hoặc mật khẩu không chính xác !');
+                    setError("Tài khoản hoặc mật khẩu không chính xác !");
                 } else {
-                    localStorage.setItem('token', res.token);
+                    localStorage.setItem("token", res.token);
                     Toast.fire({
-                        icon: 'success',
-                        title: 'Đăng nhập thành công !',
+                        icon: "success",
+                        title: "Đăng nhập thành công !",
                     });
-                    props.history.push('/');
+                    props.history.push("/");
                 }
             });
         }
@@ -71,4 +72,4 @@ const LoginPage = (props: any) => {
         </div>
     );
 };
-export default withRouter(LoginPage);
+export default withRouter(React.memo(LoginPage));

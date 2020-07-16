@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 /*
 	Template Name: Ororus
 	Author: Codexin
@@ -75,10 +76,8 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    -webkit-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -o-box-sizing: border-box;
     box-sizing: border-box;
+    font-family: "Quicksand"!important;  
 }
 
 body {
@@ -325,7 +324,6 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Poppins", sans-serif;
     font-weight: 500;
 }
 
