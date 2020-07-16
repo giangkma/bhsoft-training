@@ -1,0 +1,452 @@
+import { functions } from '../functionsCommon';
+
+
+export const data = {
+    phone: [
+        {
+            id: 'phone-1',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 343,
+            description:
+                ' Giảm ngay 1.190.000đ khi mua bộ đôi Galaxy A31 và A11',
+            name: 'OPPO Reno 3',
+            price: 8500000,
+            discount: 500000,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/42/213591/oppo-reno3-trang-600x600-400x400.jpg',
+        },
+        {
+            id: 'phone-12',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 234,
+            name: 'Iphone 11 Pro 256Gb',
+            description: 'Tặng Sạc dự phòng Huawei Power Bank CP11QC màu trắng',
+            price: 32000000,
+            discount: 2500000,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/42/210655/iphone-11-pro-256gb-black-400x400.jpg',
+        },
+        {
+            id: 'phone-13',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 23,
+            name: 'Xiaomi Redmi note 9s',
+            description: 'Tặng Sạc dự phòng Huawei Power Bank CP11QC màu trắng',
+            price: 5650000,
+            discount: 320000,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/42/214924/xiaomi-redmi-note-9s-4gb-green-400x460-400x400.jpg',
+        },
+        {
+            id: 'phone-14',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 343,
+            description: ' Trả góp 0% thẻ tín dụng',
+            name: 'SamSung Galaxy A31',
+            price: 6490000,
+            discount: 0,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/42/216174/samsung-galaxy-a31-600x600-1-400x400.jpg',
+        },
+        {
+            id: 'phone-15',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 234,
+            name: 'Vsmart Active 3',
+            description: ' Trả góp 0% thẻ tín dụng',
+            price: 3650000,
+            discount: 0,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/42/217438/vsmart-active-3-6gb-emerald-green-600x600-400x400.jpg',
+        },
+        {
+            id: 'phone-16',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 23,
+            name: 'Huawei Y6P',
+            description: ' Trả góp 0% thẻ tín dụng',
+            price: 3490000,
+            discount: 0,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/42/221926/huawei-y6p-xanh-600x600-200x200.jpg',
+        },
+        {
+            id: 'phone-17',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 234,
+            name: 'Iphone 11 Pro 256Gb',
+            description: 'Tặng Sạc dự phòng Huawei Power Bank CP11QC màu trắng',
+            price: 32000000,
+            discount: 2500000,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/42/210655/iphone-11-pro-256gb-black-400x400.jpg',
+        },
+        {
+            id: 'phone-18',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 23,
+            name: 'Xiaomi Redmi note 9s',
+            description: 'Tặng Sạc dự phòng Huawei Power Bank CP11QC màu trắng',
+            price: 5650000,
+            discount: 320000,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/42/214924/xiaomi-redmi-note-9s-4gb-green-400x460-400x400.jpg',
+        },
+        {
+            id: 'phone-19',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 343,
+            description: ' Trả góp 0% thẻ tín dụng',
+            name: 'SamSung Galaxy A31',
+            price: 6490000,
+            discount: 0,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/42/216174/samsung-galaxy-a31-600x600-1-400x400.jpg',
+        },
+        {
+            id: 'phone-21',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 234,
+            name: 'Vsmart Active 3',
+            description: ' Trả góp 0% thẻ tín dụng',
+            price: 3650000,
+            discount: 0,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/42/217438/vsmart-active-3-6gb-emerald-green-600x600-400x400.jpg',
+        },
+        {
+            id: 'phone-31',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 234,
+            name: 'Vsmart Active 3',
+            description: ' Trả góp 0% thẻ tín dụng',
+            price: 3650000,
+            discount: 0,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/42/217438/vsmart-active-3-6gb-emerald-green-600x600-400x400.jpg',
+        },
+        {
+            id: 'phone-41',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 23,
+            name: 'Huawei Y6P',
+            description: ' Trả góp 0% thẻ tín dụng',
+            price: 3490000,
+            discount: 0,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/42/221926/huawei-y6p-xanh-600x600-200x200.jpg',
+        },
+    ],
+    tablet: [
+        {
+            id: 'tablet-51',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 343,
+            description: ' Trả góp 0% thẻ tín dụng',
+            name: 'Huawei MatePad T8 (Không có Google)',
+            price: 3290000,
+            discount: 300000,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/522/223131/huawei-matepad-t8-600x600-200x200.jpg',
+        },
+        {
+            id: 'tablet-61',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 234,
+            name: 'iPad Pro 12.9 inch Wifi Cellular 128GB (2020)',
+            description: ' Trả góp 0% thẻ tín dụng',
+            price: 30000000,
+            discount: 1000000,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/522/221776/ipad-pro-12-9-inch-wifi-cellular-128gb-2020-bac-600x600-200x200.jpg',
+        },
+        {
+            id: 'tablet-71',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 23,
+            name: 'iPad Pro 11 inch Wifi Cellular 128GB (2020)',
+            description: ' Trả góp 0% thẻ tín dụng',
+            price: 25500000,
+            discount: 1000000,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/522/221774/ipad-pro-11-inch-wifi-cellular-128gb-2020-bac-600x600-200x200.jpg',
+        },
+        {
+            id: 'tablet-81',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 343,
+            description: ' Trả góp 0% thẻ tín dụng',
+            name: 'Huawei MatePad T8 (Không có Google)',
+            price: 3290000,
+            discount: 300000,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/522/223131/huawei-matepad-t8-600x600-200x200.jpg',
+        },
+        {
+            id: 'tablet-91',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 234,
+            name: 'iPad Pro 12.9 inch Wifi Cellular 128GB (2020)',
+            description: ' Trả góp 0% thẻ tín dụng',
+            price: 30000000,
+            discount: 1000000,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/522/221776/ipad-pro-12-9-inch-wifi-cellular-128gb-2020-bac-600x600-200x200.jpg',
+        },
+        {
+            id: 'tablet-122',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 343,
+            description: ' Trả góp 0% thẻ tín dụng',
+            name: 'iPad 10.2 inch Wifi Cellular 128GB (2019)',
+            price: 6490000,
+            discount: 0,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/522/213105/ipad-10-2-inch-wifi-cellular-128gb-2019-gray-400x400.jpg',
+        },
+        {
+            id: 'tablet-111',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 234,
+            name: 'iPad Pro 12.9 inch Wifi Cellular 128GB (2020)',
+            description: ' Trả góp 0% thẻ tín dụng',
+            price: 30000000,
+            discount: 1000000,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/522/221776/ipad-pro-12-9-inch-wifi-cellular-128gb-2020-bac-600x600-200x200.jpg',
+        },
+        {
+            id: 'tablet-1123',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 343,
+            description: ' Trả góp 0% thẻ tín dụng',
+            name: 'iPad 10.2 inch Wifi Cellular 128GB (2019)',
+            price: 6490000,
+            discount: 0,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/522/213105/ipad-10-2-inch-wifi-cellular-128gb-2019-gray-400x400.jpg',
+        },
+        {
+            id: 'tablet-12343',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 234,
+            name: 'iPad Mini 7.9 inch Wifi Cellular 64GB (2019)',
+            description:
+                ' Phiếu mua hàng Samsung 2.1 triệu (áp dụng đặt và nhận hàng từ 1 - 15/6) và ',
+            price: 3650000,
+            discount: 0,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/522/202820/ipad-mini-79-inch-wifi-cellular-64gb-2019-gold-400x400.jpg',
+        },
+        {
+            id: 'tablet-231',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 23,
+            name: 'iPad Mini 7.9 inch Wifi 64GB (2019)',
+            description: ' Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ',
+            price: 10500000,
+            discount: 300000,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/522/202706/ipad-mini-79-inch-wifi-2019-gold-400x400.jpg',
+        },
+        {
+            id: 'tablet-12432',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 234,
+            name: 'iPad Mini 7.9 inch Wifi Cellular 64GB (2019)',
+            description:
+                ' Phiếu mua hàng Samsung 2.1 triệu (áp dụng đặt và nhận hàng từ 1 - 15/6) và ',
+            price: 3650000,
+            discount: 0,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/522/202820/ipad-mini-79-inch-wifi-cellular-64gb-2019-gold-400x400.jpg',
+        },
+        {
+            id: 'tablet-2341',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 23,
+            name: 'iPad Mini 7.9 inch Wifi 64GB (2019)',
+            description: ' Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ',
+            price: 10500000,
+            discount: 300000,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/522/202706/ipad-mini-79-inch-wifi-2019-gold-400x400.jpg',
+        },
+    ],
+    laptop: [
+        {
+            id: 'laptop-1654',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 343,
+            description: 'Tặng Túi chống sốc Laptop 15.6 inch eValu LMP-T002A',
+            name: 'Lenovo IdeaPad S145 15IIL i5 1035G1 (81W80021VN)',
+            price: 14790000,
+            discount: 500000,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/44/214720/lenovo-ideapad-s145-15iil-i5-1035g1-8gb-512gb-win1-400x400.jpg',
+        },
+        {
+            id: 'laptop-13522',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 234,
+            name: 'Lenovo IdeaPad S340 14IIL i3 1005G1 (81VV003VVN)',
+            description:
+                'Tặng Túi chống sốc Laptop 14 inch eValu LMP-T002A Đen ',
+            price: 13690000,
+            discount: 300000,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-18-400x400.jpg',
+        },
+        {
+            id: 'laptop-13532',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 23,
+            name: 'Acer Aspire 3 A315 54K 37B0 i3 8130U (NX.HEESV.00D)',
+            description:
+                'Tặng Túi chống sốc Laptop 14 inch eValu LMP-T002A Đen',
+            price: 5650000,
+            discount: 320000,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/44/221251/acer-aspire-3-a315-nx-heesv-00d-221251-400x400.jpg',
+        },
+        {
+            id: 'laptop-145634',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 234,
+            name: 'Lenovo IdeaPad S340 14IIL i3 1005G1 (81VV003VVN)',
+            description:
+                'Tặng Túi chống sốc Laptop 14 inch eValu LMP-T002A Đen ',
+            price: 13690000,
+            discount: 300000,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-18-400x400.jpg',
+        },
+        {
+            id: 'laptop-1346652',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 23,
+            name: 'Acer Aspire 3 A315 54K 37B0 i3 8130U (NX.HEESV.00D)',
+            description:
+                'Tặng Túi chống sốc Laptop 14 inch eValu LMP-T002A Đen',
+            price: 5650000,
+            discount: 320000,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/44/221251/acer-aspire-3-a315-nx-heesv-00d-221251-400x400.jpg',
+        },
+        {
+            id: 'laptop-1324213',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 234,
+            name: 'Lenovo IdeaPad S340 14IIL i3 1005G1 (81VV003VVN)',
+            description:
+                'Tặng Túi chống sốc Laptop 14 inch eValu LMP-T002A Đen ',
+            price: 13690000,
+            discount: 300000,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-18-400x400.jpg',
+        },
+        {
+            id: 'laptop-2342521',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 23,
+            name: 'Acer Aspire 3 A315 54K 37B0 i3 8130U (NX.HEESV.00D)',
+            description:
+                'Tặng Túi chống sốc Laptop 14 inch eValu LMP-T002A Đen',
+            price: 5650000,
+            discount: 320000,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/44/221251/acer-aspire-3-a315-nx-heesv-00d-221251-400x400.jpg',
+        },
+        {
+            id: 'laptop-1234233',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 343,
+            description: ' Trả góp 0% thẻ tín dụng',
+            name: 'Acer Aspire A315 34 C2H9 N4000 (NX.HE3SV.005)',
+            price: 6490000,
+            discount: 0,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/44/210665/acer-aspire-a315-34-c2h9-n4000-4gb-256gb-win10-nx9-1-400x400.jpg',
+        },
+        {
+            id: 'laptop-14324254',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 234,
+            name: 'Lenovo IdeaPad S145 15IIL i5 1035G1 (81W80021VN)',
+            description: ' Trả góp 0% thẻ tín dụng',
+            price: 3050000,
+            discount: 0,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/44/214720/lenovo-ideapad-s145-15iil-i5-1035g1-8gb-512gb-win1-400x400.jpg',
+        },
+        {
+            id: 'laptop-1234234',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 343,
+            description: ' Trả góp 0% thẻ tín dụng',
+            name: 'Acer Aspire A315 34 C2H9 N4000 (NX.HE3SV.005)',
+            price: 6490000,
+            discount: 0,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/44/210665/acer-aspire-a315-34-c2h9-n4000-4gb-256gb-win10-nx9-1-400x400.jpg',
+        },
+        {
+            id: 'laptop-123423',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 234,
+            name: 'Lenovo IdeaPad S145 15IIL i5 1035G1 (81W80021VN)',
+            description: ' Trả góp 0% thẻ tín dụng',
+            price: 3050000,
+            discount: 0,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/44/214720/lenovo-ideapad-s145-15iil-i5-1035g1-8gb-512gb-win1-400x400.jpg',
+        },
+        {
+            id: 'laptop-12421141',
+            numberOfReviews: functions.randomNumber(),
+            rate: functions.randomRate(),
+            qty: 23,
+            name: 'Acer Nitro AN515 43 R9FD R5 3550H (NH.Q6ZSV.003)',
+            description: ' Trả góp 0% thẻ tín dụng',
+            price: 204900000,
+            discount: 500000,
+            image:
+                'https://cdn.tgdd.vn/Products/Images/44/221409/acer-nitro-an515-43-r5-nhq6zsv003-400x400.jpg',
+        },
+    ],
+};

@@ -1,0 +1,27 @@
+.logo {
+    width: 120px;
+    height: 31px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px 24px 16px 0;
+    float: left;
+}
+a{
+    color: #fff!important;
+}
+.ant-layout-footer{
+    position: absolute;
+    width:100%;
+    bottom:0;
+    height: 60px;
+}
+.ant-layout{
+    background: #fff;
+}
+img {
+    width: 60%;
+    margin: 0 auto;
+}
+
+li.ant-menu-item.ant-menu-item-only-child:nth-child(10) {
+    float: right;
+}

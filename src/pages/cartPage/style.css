@@ -1,0 +1,61 @@
+.support-section svg {
+    font-size: 35px;
+}
+.cart-item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.cart-item > div{
+    flex: 1;
+    text-align: center;
+}
+.cart-item-name{
+    flex: 2!important;
+    border-left: 1px solid rgb(214, 214, 214);
+}
+.cart-item.main .cart-item-name{
+    text-align: left !important;
+    padding-left: 1rem;
+}
+.cart-item-name img {
+    width: 6rem;
+    margin-right: 1rem;
+}
+.cart-item-name span{
+    font-size: 1.4rem;
+}
+.cart-result {
+    display: flex;
+    align-items: center;
+    float: right;
+    margin-right: 1rem;
+}
+.cart-result h5{
+    margin-right: 1rem;
+}
+.cart-result button{
+    font-size: 1.8rem;
+    background: rgb(255, 103, 1);
+    color: #fff;
+    border-radius: .5rem;
+}
+.cart-result button:hover{
+    background:rgb(202, 98, 0);
+}
+
+.cart-item-icon{
+    font-size: 2rem;
+    padding: 0 1rem;
+}
+.cart-item-icon.delete {
+    font-size: 2rem;
+    padding: 0 1rem;
+    color: red;
+    transition: all .3s;
+    cursor: pointer;
+}
+.cart-item-icon.delete:hover{
+    font-size: 2.2rem;
+    transition: all .3s;
+}
