@@ -10,7 +10,7 @@ import { Badge, Layout, Menu } from "antd";
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
-import { functions } from "../../functionsCommon";
+import { functions } from "../functionsCommon";
 import "./style.css";
 
 const { Header } = Layout;

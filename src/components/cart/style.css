@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+.support-section svg {
+    font-size: 35px;
+}
+.cart-container {
+    font-family: 'Quicksand', sans-serif;
+}
+.cart-container p{
+    font-size: 1.4rem!important;
+}
+.cart-item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.cart-item > div{
+    flex: 1;
+    text-align: center;
+}
+.cart-item-name{
+    flex: 2!important;
+    border-left: 1px solid rgb(214, 214, 214);
+}
+.cart-item.main .cart-item-name{
+    text-align: left !important;
+    padding-left: 1rem;
+}
+.cart-item-name img {
+    width: 6rem;
+    margin-right: 1rem;
+}
+.cart-item-name span{
+    font-size: 1.4rem;
+}
+.cart-result {
+    display: flex;
+    align-items: center;
+    float: right;
+    margin-right: 1rem;
+}
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+.cart-result p{
+    margin-right: 1rem;
+    text-align: right;
+}
+.cart-result button{
+    font-size: 1.8rem;
+    background: rgb(255, 103, 1);
+    color: #fff;
+    border-radius: .5rem;
+    margin-left: 1rem;
+}
+.cart-result button:hover{
+    background:rgb(245, 133, 29);
+}
+
+.cart-item-icon{
+    font-size: 2rem;
+    padding: 0 1rem;
+}
+.cart-item-icon.delete {
+    font-size: 2rem;
+    padding: 0 1rem;
+    color: red;
+    transition: all .3s;
+    cursor: pointer;
+}
+.cart-item-icon.delete:hover{
+    font-size: 2.2rem;
+    transition: all .3s;
+}
+.ant-divider-inner-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ant-divider-inner-text > span{
+    padding: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    color: #f56200;
+}

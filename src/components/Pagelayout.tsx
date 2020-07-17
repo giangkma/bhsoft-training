@@ -2,7 +2,7 @@ import { Layout } from "antd";
 import React from "react";
 import { withRouter, useHistory } from "react-router-dom";
 import { functions } from "../functionsCommon";
-import HeaderPage from "./common/Header";
+import HeaderPage from "../common/Header";
 
 const { Toast } = functions;
 

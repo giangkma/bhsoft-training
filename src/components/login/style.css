@@ -1,0 +1,93 @@
+
+.container-login {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2c3338;
+}
+input{
+    outline: none;
+    border: none;
+}
+.login{
+    width: 35rem;
+    height: 35rem;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+}
+.header{
+    color: #6ca65d;
+    text-align: center;
+}
+.header__icon i{
+    font-size: 7rem;
+}
+.header__title h2{
+    font-size: 2rem;
+    color: #6ca65d;
+}
+.form{
+    width:100%;
+}
+.form > div{
+    height: 4.5rem;
+    margin: 1.5rem 0;
+}
+.form__username, .form__password{
+    display: flex;
+}
+.form__icon{
+    font-size: 2rem;
+    background: #363b41;
+    width:5rem;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+}
+.form__icon i{
+    color: #606468;
+}
+.form__input{
+    width:100%;
+}
+.form__input > input{
+    border: none;
+    width:100%;
+    height: 100%;
+    padding-left: 1rem;
+    font-size: 1.7rem;
+    color: #fff;
+    background-color: #3b4148;
+    transition: background-color .4s;
+}
+.form__input:hover > input{
+    background-color: #434a52;
+}
+
+.form__submit button{
+    width:100%;
+    height: 100%;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    outline: none;
+    transition: all .4s;
+}
+.form__submit button i{
+    color: #6ca65d;
+    font-size: 3rem;
+    transition: all .4s;
+}
+.form__submit button:hover{
+    background-color: #6ca65d;
+    transition: all .4s;
+}
+.form__submit button:hover i{
+    color: #fff;
+    transition: all .4s;
+}
