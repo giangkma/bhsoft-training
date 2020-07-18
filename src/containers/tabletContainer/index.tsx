@@ -3,7 +3,7 @@ import { Card, Col, Rate, Skeleton } from "antd";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Tablet from "../../components/tablet";
-import { functions } from "../../functionsCommon";
+import { functions } from "../../common/functions";
 import { api } from "../../service/api";
 
 const TabletContainer = () => {

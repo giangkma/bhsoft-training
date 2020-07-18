@@ -1,7 +1,29 @@
 import * as CONSTANTS from "./constants";
-import { action, ActionType } from "typesafe-actions";
+import { action } from "typesafe-actions";
 
 export const appActions = {
+    login: (user: object) =>
+        action(CONSTANTS.LOGIN, user),
+
+    loginSuccess: (user: object) =>
+        action(CONSTANTS.LOGIN_SUCCESS, user),
+
+    loginFail: () => action(CONSTANTS.LOGIN_FAIL),
+
+    logout: () =>
+        action(CONSTANTS.LOGOUT),
+
+    logoutSuccess: () =>
+        action(CONSTANTS.LOGOUT_SUCCESS),
+
+    addCart: (data: object | number, quantity: number) =>
+        action(CONSTANTS.ADD_CART, { data, quantity }),
+
+    addCartSuccess: (data: object | number, quantity: number) =>
+        action(CONSTANTS.ADD_CART_SUCCESS, { data, quantity }),
+
+    addCartFail: (error: string) => action(CONSTANTS.ADD_CART_FAIL, { error }),
+
     editQuantityProduct: (id: string, quantity: number) =>
         action(CONSTANTS.EDIT_QUANTITY_PRODUCT, { id, quantity }),
 
@@ -22,16 +44,9 @@ export const appActions = {
     deleteProductFail: (error: string) =>
         action(CONSTANTS.DELETE_PRODUCT_FAIL, { error }),
 
-    loadingData: (loading: boolean) =>
-        action(CONSTANTS.LOADING_DATA, { loading }),
+    showLoading: () => action(CONSTANTS.SHOW_LOADING),
 
-    addCart: (data: object | number, quantity: number) =>
-        action(CONSTANTS.ADD_CART, { data, quantity }),
+    hideLoading: () => action(CONSTANTS.HIDE_LOADING),
 
-    addCartSuccess: (data: object | number, quantity: number) =>
-        action(CONSTANTS.ADD_CART_SUCCESS, { data, quantity }),
-
-    addCartFail: (error: string) => action(CONSTANTS.ADD_CART_FAIL, { error }),
 };
 
-export type AppActions = ActionType<typeof appActions>;

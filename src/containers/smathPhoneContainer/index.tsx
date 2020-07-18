@@ -3,9 +3,8 @@ import { Card, Col, Rate, Skeleton } from "antd";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SmathPhone from "../../components/smathPhone";
-import { functions } from "../../functionsCommon";
+import { functions } from "../../common/functions";
 import { api } from "../../service/api";
-import "./style.css";
 
 const SmathPhoneContainer = () => {
     const [listProduct, setListProduct] = useState([]);

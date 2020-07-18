@@ -6,12 +6,18 @@ import {
 import { Layout, Row } from "antd";
 import React from "react";
 import { Link } from "react-router-dom";
-import PageLayout from "../Pagelayout";
+import PageLayout from "../../common/Pagelayout";
 import "./style.css";
 
 const { Content } = Layout;
 
-const Home = (props: any) => {
+interface IProps {
+    renderListProduct: Function;
+    listProductPhone: object[];
+    listProductTablet: object[];
+    listProductLaptop: object[];
+}
+const Home = (props: IProps) => {
     const renderListProduct = (listProduct: object[]): any => {
         return props.renderListProduct(listProduct);
     };

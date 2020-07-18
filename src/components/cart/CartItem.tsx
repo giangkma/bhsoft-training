@@ -1,7 +1,7 @@
 import { DeleteOutlined } from '@ant-design/icons';
 import { InputNumber } from 'antd';
 import React from 'react';
-import { functions } from '../../functionsCommon';
+import { functions } from '../../common/functions';
 import './style.css';
 
 interface IProps {

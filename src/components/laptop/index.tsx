@@ -1,12 +1,15 @@
 import { Layout, Row } from "antd";
 import React from "react";
 import BreadcrumbPage from '../../common/BreadcrumbPage';
-import PageLayout from "../Pagelayout";
+import PageLayout from "../../common/Pagelayout";
 import "./style.css";
 
 const { Content } = Layout;
+interface IProps {
+    renderListProduct: Function;
+}
 
-const Laptop = (props: any) => {
+const Laptop = (props: IProps) => {
     const renderListProduct = (): any => {
         return props.renderListProduct();
     };

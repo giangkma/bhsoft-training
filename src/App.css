@@ -155,6 +155,16 @@ ul {
 .swal2-popup.swal2-toast{
     box-shadow: none!important;
 }
+.swal2-popup {
+    font-size: 1.4rem;
+}
+.ant-spin-spinning{
+    position: absolute!important;
+    width:100%;
+    height: 100%;
+    top: 0;
+    z-index: 1;
+}
 @media (min-width: 1200px) {
     .ant-col-xl-4 {
         display: block;

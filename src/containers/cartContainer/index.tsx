@@ -2,8 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { appActions } from "../../actions";
 import Cart from "../../components/cart";
-import { functions } from "../../functionsCommon";
-const { Toast } = functions;
+import { functions } from "../../common/functions";
 
 const CartContainer = () => {
     const dispatch = useDispatch();
@@ -16,12 +15,6 @@ const CartContainer = () => {
     const onDeleteProduct = (id: string) => {
         if (id) {
             dispatch(appActions.deleteProduct(id));
-            setTimeout(() => {
-                Toast.fire({
-                    icon: "success",
-                    title: "Xóa thành công !",
-                });
-            }, 300);
         }
     };
     const renderTotalPrice = (dataCart: []) => {

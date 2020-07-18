@@ -1,26 +1,12 @@
 import React, { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Spin } from 'antd';
-import { LoadingOutlined } from '@ant-design/icons';
 import { Provider } from 'react-redux';
-import configStore from './store';
-import './style.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
-
+import GlobalLoading from './common/globalLoading';
+import configStore from './store';
+import './App.css';
+import { Skeleton } from 'antd';
 const { store, persistor } = configStore();
-
-const antIcon = (
-    <LoadingOutlined
-        style={{
-            fontSize: 54,
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%,-50%)',
-        }}
-        spin
-    />
-);
 
 const LoginPage = lazy(() => import('./pages/loginPage'));
 const CartPage = lazy(() => import('./pages/cartPage'));
@@ -36,7 +22,7 @@ const App = () => {
             <Provider store={store}>
                 <PersistGate loading={null} persistor={persistor}>
                     <Router>
-                        <Suspense fallback={<Spin indicator={antIcon} />}>
+                        <Suspense fallback={<Skeleton active />}>
                             <Switch>
                                 <Route path="/" exact>
                                     <HomePage />
@@ -60,6 +46,7 @@ const App = () => {
                                     <CartPage />
                                 </Route>
                             </Switch>
+                            <GlobalLoading />
                         </Suspense>
                     </Router>
                 </PersistGate>

@@ -4,29 +4,26 @@ import {
     LogoutOutlined,
     MobileOutlined,
     ShoppingCartOutlined,
-    TabletOutlined,
+    TabletOutlined
 } from "@ant-design/icons";
 import { Badge, Layout, Menu } from "antd";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
-import { functions } from "../functionsCommon";
+import { appActions } from "../actions";
 import "./style.css";
 
 const { Header } = Layout;
-const { Toast } = functions;
-
-const onLogoutAccount = () => {
-    localStorage.removeItem("token");
-    Toast.fire({
-        icon: "success",
-        title: "Đăng xuất thành công !",
-    });
-};
 
 const HeaderPage = (props: any) => {
+    const dispatch = useDispatch();
     const { url } = props.match;
     const dataCart = useSelector((state: any) => state.dataCart);
+    
+    const onLogoutAccount = () => {
+        dispatch(appActions.logout());
+        localStorage.removeItem("token");
+    };
     return (
         <div>
             <Header>

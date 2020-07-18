@@ -5,17 +5,37 @@ import * as CONSTANTS from './constants';
 const persistCartConfig = {
     key: 'cart',
     storage,
-    whitelist: ['dataCart'],
+    whitelist: ['dataCart','token'],
 };
 
 const initialState = {
     dataCart: [],
     loading: false,
-    error: null,
+    token: null
 };
 
 const rootReducers = (state = initialState, action: any) => {
     switch (action.type) {
+        case CONSTANTS.LOGIN_SUCCESS: {
+            const token = action.payload;
+            return {
+                ...state,
+                token: token,
+            };
+        }
+        case CONSTANTS.LOGIN_FAIL: {
+            return {
+                ...state,
+                token: null
+            };
+        }
+        case CONSTANTS.LOGOUT_SUCCESS: {
+            return {
+                ...state,
+                token: null,
+            };
+        }
+
         case CONSTANTS.EDIT_QUANTITY_PRODUCT_SUCCESS: {
             const { id, quantity } = action.payload;
             const newDataCart = [...state.dataCart];
@@ -33,7 +53,6 @@ const rootReducers = (state = initialState, action: any) => {
         case CONSTANTS.EDIT_QUANTITY_PRODUCT_FAIL: {
             return {
                 ...state,
-                error: action.payload.error,
             };
         }
         case CONSTANTS.DELETE_PRODUCT_SUCCESS: {
@@ -48,7 +67,6 @@ const rootReducers = (state = initialState, action: any) => {
         case CONSTANTS.DELETE_PRODUCT_FAIL: {
             return {
                 ...state,
-                error: action.error,
             };
         }
         case CONSTANTS.ADD_CART_SUCCESS: {
@@ -72,8 +90,19 @@ const rootReducers = (state = initialState, action: any) => {
         case CONSTANTS.ADD_CART_FAIL: {
             return {
                 ...state,
-                error: action.payload.error,
             };            
+        }
+        case CONSTANTS.SHOW_LOADING: {
+            return {
+                ...state,
+                loading: true,
+            };
+        }
+        case CONSTANTS.HIDE_LOADING: {
+            return {
+                ...state,
+                loading: false,
+            };
         }
         default:
             return state;

@@ -7049,3 +7049,6 @@ header.header-type-2 .header-cart-area .dropdown-toggle .cart-text {
     background-color: #000;
     z-index: 9950;
 }
+button{
+    outline: none!important;
+}

@@ -1,13 +1,18 @@
 import { InputNumber, Layout, Rate } from 'antd';
 import React from 'react';
 import BreadcrumbPage from '../../common/BreadcrumbPage';
-import PageLayout from '../Pagelayout';
-import { functions } from '../../functionsCommon';
+import PageLayout from '../../common/Pagelayout';
+import { functions } from '../../common/functions';
 import './style.css';
 
 const { Content } = Layout;
-
-const DetailProduct = (props: any) => {
+interface IProps {
+    onChangeQuantity: Function;
+    addProductToCart: Function;
+    itemsBreadcrumb: [];
+    dataProduct: object | any;
+}
+const DetailProduct = (props: IProps) => {
     const {dataProduct, itemsBreadcrumb} = props;
     const onChangeQuantity = (value: number) => {
         props.onChangeQuantity(value);

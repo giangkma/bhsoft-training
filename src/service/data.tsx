@@ -1,4 +1,4 @@
-import { functions } from '../functionsCommon';
+import { functions } from '../common/functions';
 
 
 export const data = {

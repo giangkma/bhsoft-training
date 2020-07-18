@@ -1,12 +1,17 @@
 import { EditOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import { Divider } from "antd";
 import React from "react";
-import PageLayout from "../Pagelayout";
+import PageLayout from "../../common/Pagelayout";
 import CartItem from "./CartItem";
 import "./style.css";
 
-
-const Cart = (props: any) => {
+interface IProps {
+    onChangeQuantity: Function;
+    onDeleteProduct: Function;
+    renderTotalPrice: Function;
+    dataCart: [];
+}
+const Cart = (props: IProps) => {
     const { dataCart } = props;
     const onChangeQuantity = (quantity: number, id: string) => {
         props.onChangeQuantity(quantity, id);

@@ -1,17 +1,20 @@
-import { Layout, Row } from "antd";
-import React from "react";
-import BreadcrumbPage from "../../common/BreadcrumbPage";
-import PageLayout from "../Pagelayout";
-import "./style.css";
+import { Layout, Row } from 'antd';
+import React from 'react';
+import BreadcrumbPage from '../../common/BreadcrumbPage';
+import PageLayout from '../../common/Pagelayout';
+import './style.css';
 
 const { Content } = Layout;
+interface IProps {
+    renderListProduct: Function;
+}
 
-const Tablet = (props: any) => {
+const Tablet = (props: IProps) => {
     const renderListProduct = (): any => {
         return props.renderListProduct();
     };
 
-    const itemsBreadcrumb = ["Home", "Tablet"];
+    const itemsBreadcrumb = ['Home', 'Tablet'];
 
     return (
         <>

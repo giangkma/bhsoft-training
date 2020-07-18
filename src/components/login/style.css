@@ -91,3 +91,7 @@ input{
     color: #fff;
     transition: all .4s;
 }
+.error__login{
+    color: rgb(248, 33, 33);
+    font-size: 1.3rem;
+}
