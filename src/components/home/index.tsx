@@ -8,7 +8,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PageLayout from "../../common/Pagelayout";
 import "./style.css";
-
 const { Content } = Layout;
 
 interface IProps {

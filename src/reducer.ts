@@ -6,14 +6,15 @@ interface checkListProduct {
     id: string;
     numberOfReviews: number;
     rate: number;
-    description: string;
+    qty: number;
     name: string;
+    description: string;
     price: number;
     discount: number;
     image: string;
-    qty: number;
+    quantity: number;
 }
-
+const checkDataCart: checkListProduct[] = [];
 const persistCartConfig = {
     key: 'cart',
     storage,
@@ -21,7 +22,7 @@ const persistCartConfig = {
 };
 
 const initialState = {
-    dataCart: [],
+    dataCart: checkDataCart,
     loading: false,
     token: null,
 };
@@ -29,6 +30,7 @@ const initialState = {
 const rootReducers = (state = initialState, action: any) => {
     switch (action.type) {
         case CONSTANTS.LOGIN_SUCCESS: {
+            
             const token = action.payload;
             return {
                 ...state,
@@ -49,6 +51,8 @@ const rootReducers = (state = initialState, action: any) => {
         }
 
         case CONSTANTS.EDIT_QUANTITY_PRODUCT_SUCCESS: {
+            console.log(action);
+
             const { id, quantity } = action.payload;
             const newDataCart = [...state.dataCart];
             newDataCart.map((item: { id: string; quantity: number }) => {
@@ -82,7 +86,7 @@ const rootReducers = (state = initialState, action: any) => {
             };
         }
         case CONSTANTS.ADD_CART_SUCCESS: {
-            const newDataCart: any = [...state.dataCart];
+            const newDataCart: checkListProduct[] = [...state.dataCart];
             const data: any = action.payload.data;
             const quantity: number = action.payload.quantity;
             // Trường hợp mặt hàng đã có trong giỏ => sửa quantity

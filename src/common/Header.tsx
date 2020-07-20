@@ -13,12 +13,29 @@ import { Link, withRouter } from "react-router-dom";
 import { appActions } from "../actions";
 import "./style.css";
 
+interface checkListProduct {
+    id: string;
+    numberOfReviews: number;
+    rate: number;
+    qty: number;
+    name: string;
+    description: string;
+    price: number;
+    discount: number;
+    image: string;
+    quantity: number;
+}
+interface IProps {
+    match : {
+        url: string;
+    }
+}
 const { Header } = Layout;
 
-const HeaderPage = (props: any) => {
+const HeaderPage = (props: IProps) => {
     const dispatch = useDispatch();
     const { url } = props.match;
-    const dataCart = useSelector((state: any) => state.dataCart);
+    const dataCart = useSelector((state: {dataCart: checkListProduct[]}) => state.dataCart);
     
     const onLogoutAccount = () => {
         dispatch(appActions.logout());

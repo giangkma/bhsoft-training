@@ -8,7 +8,12 @@ import { functions } from "../../common/functions";
 interface checkState {
     token: string
 }
-const LoginContainer = (props: any) => {
+interface IProps {
+    history: {
+        push: Function
+    }
+}
+const LoginContainer = (props: IProps) => {
     const dispatch = useDispatch();
     const token = useSelector((state: checkState) => state.token);
 

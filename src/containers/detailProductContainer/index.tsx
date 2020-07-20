@@ -29,10 +29,10 @@ const DetailProductContainer = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         const getDataProductById = () => {
-            const idProduct = params.id;
+            const idProduct: string = params.id;
             const codeProduct: string = idProduct.split('-')[0];
-            const testData: any = api.data;
-            const listProduct = testData[codeProduct];
+            const data: any = api.data;
+            const listProduct: configData[] = data[codeProduct];
             const product = listProduct.filter(
                 (product: configData) => product.id === idProduct
             );
@@ -49,7 +49,7 @@ const DetailProductContainer = () => {
     const onChangeQuantity = (value: number) => {
         setQuantity(value);
     };
-    const addProductToCart = (dataProduct: any) => {
+    const addProductToCart = (dataProduct: configData) => {
         const data = dataProduct;
         dispatch(appActions.addCart(data, quantity));
     };

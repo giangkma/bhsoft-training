@@ -3,7 +3,7 @@ import './style.css';
 import { useSelector } from 'react-redux';
 
 const GlobalLoading = () => {
-    const showLoading = useSelector(state => state.loading);
+    const showLoading = useSelector((state: {loading: boolean}) => state.loading);
     let xhtml = null;
     if (showLoading) {
         xhtml = (
