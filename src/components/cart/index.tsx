@@ -9,22 +9,29 @@ interface IProps {
     onChangeQuantity: Function;
     onDeleteProduct: Function;
     renderTotalPrice: Function;
-    dataCart: [];
+    dataCart: checkDataCart[];
+}
+interface checkDataCart {
+    price: number;
+    quantity: number;
+    name: string;
+    image: string;
+    id: string;
 }
 const Cart = (props: IProps) => {
     const { dataCart } = props;
-    const onChangeQuantity = (quantity: number, id: string) => {
+    const onChangeQuantity = (quantity: number, id: string): void => {
         props.onChangeQuantity(quantity, id);
     };
-    const onDeleteProduct = (id: string) => {
+    const onDeleteProduct = (id: string): void => {
         props.onDeleteProduct(id);
     };
-    const renderTotalPrice = (dataCart: []): any => {
+    const renderTotalPrice = (dataCart: checkDataCart[]): string => {
         return props.renderTotalPrice(dataCart);
     };
-    const renderListProductsCart = (data: []) => {
+    const renderListProductsCart = (dataCart: checkDataCart[]) => {
         let xhtml = null;
-        xhtml = data.map((item, index) => {
+        xhtml = dataCart.map((item, index) => {
             return (
                 <div key={index}>
                     <CartItem
@@ -68,7 +75,7 @@ const Cart = (props: IProps) => {
                         <div className="cart-result">
                             <div>
                                 <p>
-                                    Tổng tiền hàng ( {dataCart.length} sản phẩm
+                                    Tổng hóa đơn ( {dataCart.length} sản phẩm
                                     ) :{" "}
                                     <span style={{ color: "red" }}>
                                         {renderTotalPrice(dataCart)}

@@ -6,11 +6,24 @@ import SmathPhone from "../../components/smathPhone";
 import { functions } from "../../common/functions";
 import { api } from "../../service/api";
 
+interface checkListProduct {
+    id: string;
+    numberOfReviews: number;
+    rate: number;
+    description: string;
+    name: string;
+    price: number;
+    discount: number;
+    image: string;
+    qty: number;
+}
+const initialListProduct: checkListProduct[] = [];
+
 const SmathPhoneContainer = () => {
-    const [listProduct, setListProduct] = useState([]);
+    const [listProduct, setListProduct] = useState(initialListProduct);
     useEffect(() => {
         const getListDataProduct = () => {
-            const dataProduct: any = api.data.phone;
+            const dataProduct: checkListProduct[] = api.data.phone;
             setListProduct(dataProduct);
         };
         getListDataProduct();
@@ -19,7 +32,7 @@ const SmathPhoneContainer = () => {
     const renderListProduct = () => {
         let xhtml = null;
         if (listProduct.length === 0) return <Skeleton active />;
-        xhtml = listProduct.map((item: object|any, index:number) => {
+        xhtml = listProduct.map((item: checkListProduct, index:number) => {
             return (
                 <Col
                     className="content-products-card"

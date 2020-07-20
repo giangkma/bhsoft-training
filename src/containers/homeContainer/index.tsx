@@ -1,20 +1,32 @@
-import { ThunderboltOutlined } from "@ant-design/icons";
-import { Card, Col, Rate, Skeleton } from "antd";
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import Home from "../../components/home";
-import { functions } from "../../common/functions";
-import { api } from "../../service/api";
+import { ThunderboltOutlined } from '@ant-design/icons';
+import { Card, Col, Rate, Skeleton } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import Home from '../../components/home';
+import { functions } from '../../common/functions';
+import { api } from '../../service/api';
 
+interface checkListProduct {
+    id: string;
+    numberOfReviews: number;
+    rate: number;
+    description: string;
+    name: string;
+    price: number;
+    discount: number;
+    image: string;
+    qty: number;
+}
+const initialListProduct: checkListProduct[] = [];
 const HomeContainer = () => {
-    const [listProductPhone, setListProductPhone] = useState([]);
-    const [listProductTablet, setListProductTablet] = useState([]);
-    const [listProductLaptop, setListProductLaptop] = useState([]);
+    let [listProductPhone, setListProductPhone] = useState(initialListProduct);
+    let [listProductTablet, setListProductTablet] = useState(initialListProduct);
+    let [listProductLaptop, setListProductLaptop] = useState(initialListProduct);
     useEffect(() => {
         const getListDataProduct = () => {
-            const dataProductPhone: any = api.data.phone;
-            const dataProductTablet: any = api.data.tablet;
-            const dataProductLaptop: any = api.data.laptop;
+            let dataProductPhone: checkListProduct[] = api.data.phone;
+            let dataProductTablet: checkListProduct[] = api.data.tablet;
+            let dataProductLaptop: checkListProduct[] = api.data.laptop;
             setListProductPhone(dataProductPhone);
             setListProductTablet(dataProductTablet);
             setListProductLaptop(dataProductLaptop);
@@ -22,10 +34,10 @@ const HomeContainer = () => {
         getListDataProduct();
     }, []);
 
-    const renderListProduct = (listProduct: object[]) => {
+    const renderListProduct = (listProduct: checkListProduct[]) => {
         let xhtml = null;
         if (listProduct.length === 0) return <Skeleton active />;
-        xhtml = listProduct.map((item: object | any, index: number) => {
+        xhtml = listProduct.map((item: checkListProduct , index: number) => {
             return (
                 <Col
                     className="content-products-card"
@@ -51,8 +63,8 @@ const HomeContainer = () => {
                                 Xem chi tiết
                             </div>
                             <div className="discount-product">
-                                <ThunderboltOutlined />{" "}
-                                {item.discount === 0 ? null : "GIẢM"}{" "}
+                                <ThunderboltOutlined />{' '}
+                                {item.discount === 0 ? null : 'GIẢM'}{' '}
                                 {functions.formatPrice(item.discount)}
                             </div>
                             <div className="infor-product">
@@ -101,7 +113,6 @@ const HomeContainer = () => {
             listProductPhone={listProductPhone}
             listProductTablet={listProductTablet}
             listProductLaptop={listProductLaptop}
-
         />
     );
 };

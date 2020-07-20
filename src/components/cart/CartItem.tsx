@@ -5,7 +5,13 @@ import { functions } from '../../common/functions';
 import './style.css';
 
 interface IProps {
-    item: object | any;
+    item: {
+        id: string;
+        name: string;
+        image: string;
+        price: number;
+        quantity: number;
+    };
     onChangeQuantity: Function;
     onDeleteProduct: Function;
 }

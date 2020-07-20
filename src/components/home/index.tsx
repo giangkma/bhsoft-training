@@ -13,12 +13,24 @@ const { Content } = Layout;
 
 interface IProps {
     renderListProduct: Function;
-    listProductPhone: object[];
-    listProductTablet: object[];
-    listProductLaptop: object[];
+    listProductPhone: checkListProduct[];
+    listProductTablet: checkListProduct[];
+    listProductLaptop: checkListProduct[];
 }
+interface checkListProduct {
+    id: string;
+    numberOfReviews: number;
+    rate: number;
+    description: string;
+    name: string
+    price: number;
+    discount: number;
+    image: string;
+    qty: number;
+}
+
 const Home = (props: IProps) => {
-    const renderListProduct = (listProduct: object[]): any => {
+    const renderListProduct = (listProduct: checkListProduct[]) => {
         return props.renderListProduct(listProduct);
     };
     const { listProductPhone, listProductTablet, listProductLaptop } = props;

@@ -2,16 +2,28 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import * as CONSTANTS from './constants';
 
+interface checkListProduct {
+    id: string;
+    numberOfReviews: number;
+    rate: number;
+    description: string;
+    name: string;
+    price: number;
+    discount: number;
+    image: string;
+    qty: number;
+}
+
 const persistCartConfig = {
     key: 'cart',
     storage,
-    whitelist: ['dataCart','token'],
+    whitelist: ['dataCart', 'token'],
 };
 
 const initialState = {
     dataCart: [],
     loading: false,
-    token: null
+    token: null,
 };
 
 const rootReducers = (state = initialState, action: any) => {
@@ -26,7 +38,7 @@ const rootReducers = (state = initialState, action: any) => {
         case CONSTANTS.LOGIN_FAIL: {
             return {
                 ...state,
-                token: null
+                token: null,
             };
         }
         case CONSTANTS.LOGOUT_SUCCESS: {
@@ -39,7 +51,7 @@ const rootReducers = (state = initialState, action: any) => {
         case CONSTANTS.EDIT_QUANTITY_PRODUCT_SUCCESS: {
             const { id, quantity } = action.payload;
             const newDataCart = [...state.dataCart];
-            newDataCart.map((item: object | any) => {
+            newDataCart.map((item: { id: string; quantity: number }) => {
                 if (item.id === id) {
                     item.quantity = quantity;
                 }
@@ -90,7 +102,7 @@ const rootReducers = (state = initialState, action: any) => {
         case CONSTANTS.ADD_CART_FAIL: {
             return {
                 ...state,
-            };            
+            };
         }
         case CONSTANTS.SHOW_LOADING: {
             return {

@@ -10,7 +10,7 @@ interface IProps {
 }
 
 const Laptop = (props: IProps) => {
-    const renderListProduct = (): any => {
+    const renderListProduct = () => {
         return props.renderListProduct();
     };
     const itemsBreadcrumb = ["Home","Laptop"];

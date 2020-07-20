@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router";
 import { appActions } from "../../actions";
 import Login from "../../components/login";
 import { functions } from "../../common/functions";
 
+interface checkState {
+    token: string
+}
 const LoginContainer = (props: any) => {
     const dispatch = useDispatch();
+    const token = useSelector((state: checkState) => state.token);
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -17,11 +21,10 @@ const LoginContainer = (props: any) => {
             : setPassword(e.target.value);
     };
     useEffect(() => {
-        const token = localStorage.getItem('token');
         if (token) {
             props.history.push("/"); //Đã login
         }
-    }, [props.history]);
+    }, [props.history, token]);
 
     const submitForm = (e: any) => {
         e.preventDefault();

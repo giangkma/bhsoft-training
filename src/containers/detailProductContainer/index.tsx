@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
-import { appActions } from "../../actions";
-import DetailProduct from "../../components/detailProduct";
-import { api } from "../../service/api";
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { appActions } from '../../actions';
+import DetailProduct from '../../components/detailProduct';
+import { api } from '../../service/api';
 
 interface configData {
     name: string;
@@ -11,33 +11,36 @@ interface configData {
     price: number;
     discount: number;
     description: string;
+    id: string;
 }
+
 const initDataProduct: configData = {
-    name: "",
-    image: "",
+    name: '',
+    image: '',
     price: 0,
     discount: 0,
-    description: "",
+    description: '',
+    id: '',
 };
 const DetailProductContainer = () => {
     const [dataProduct, setDataProduct] = useState(initDataProduct);
     const [quantity, setQuantity] = useState(1);
-    const params: any = useParams();
+    const params: { id: string } = useParams();
     const dispatch = useDispatch();
     useEffect(() => {
         const getDataProductById = () => {
             const idProduct = params.id;
-            const codeProduct: string = idProduct.split("-")[0];
+            const codeProduct: string = idProduct.split('-')[0];
             const testData: any = api.data;
             const listProduct = testData[codeProduct];
             const product = listProduct.filter(
-                (product: object | any) => product.id === idProduct
+                (product: configData) => product.id === idProduct
             );
             if (product) {
-                localStorage.setItem("product", JSON.stringify(product[0]));
+                localStorage.setItem('product', JSON.stringify(product[0]));
                 setDataProduct(product[0]);
             } else {
-                const data: object | any = localStorage.getItem("product");
+                const data: any = localStorage.getItem('product');
                 setDataProduct(JSON.parse(data));
             }
         };
@@ -50,7 +53,7 @@ const DetailProductContainer = () => {
         const data = dataProduct;
         dispatch(appActions.addCart(data, quantity));
     };
-    const itemsBreadcrumb: any = ["Home", "Điện thoại", `${dataProduct.name}`];
+    const itemsBreadcrumb: any = ['Home', 'Điện thoại', `${dataProduct.name}`];
 
     return (
         <DetailProduct

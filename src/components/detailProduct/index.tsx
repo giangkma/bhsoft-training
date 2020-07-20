@@ -10,14 +10,21 @@ interface IProps {
     onChangeQuantity: Function;
     addProductToCart: Function;
     itemsBreadcrumb: [];
-    dataProduct: object | any;
+    dataProduct: checkDataProduct
+}
+interface checkDataProduct {
+    image: string;
+    name: string;
+    price: number;
+    discount: number;
+    description: string;
 }
 const DetailProduct = (props: IProps) => {
     const {dataProduct, itemsBreadcrumb} = props;
     const onChangeQuantity = (value: number) => {
         props.onChangeQuantity(value);
     };
-    const addProductToCart = (dataProduct: any) => {
+    const addProductToCart = (dataProduct: checkDataProduct) => {
         props.addProductToCart(dataProduct);
     };
 

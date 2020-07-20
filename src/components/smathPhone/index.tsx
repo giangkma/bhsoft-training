@@ -10,7 +10,7 @@ interface IProps {
 }
 
 const SmathPhone = (props: IProps) => {
-    const renderListProduct = (): any => {
+    const renderListProduct = () => {
         return props.renderListProduct();
     };
 

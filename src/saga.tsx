@@ -12,8 +12,11 @@ import { functions } from './common/functions';
 import { api } from './service/api';
 
 const { notificationSuccess, notificationError } = functions;
-
-function* editQuantityProduct({ payload }: object | any) {
+interface test {
+    id: string;
+    quantity: number;
+}
+function* editQuantityProduct({ payload }: test) {
     try {
         const { id, quantity } = payload;
         if (id && quantity) {

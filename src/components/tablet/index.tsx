@@ -10,7 +10,7 @@ interface IProps {
 }
 
 const Tablet = (props: IProps) => {
-    const renderListProduct = (): any => {
+    const renderListProduct = () => {
         return props.renderListProduct();
     };
 

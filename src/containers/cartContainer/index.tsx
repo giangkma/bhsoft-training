@@ -4,9 +4,19 @@ import { appActions } from "../../actions";
 import Cart from "../../components/cart";
 import { functions } from "../../common/functions";
 
+interface checkState {
+    dataCart: checkDataCart[]
+}
+interface checkDataCart {
+    price: number;
+    quantity: number;
+    name: string;
+    image: string;
+    id: string;
+}
 const CartContainer = () => {
     const dispatch = useDispatch();
-    const dataCart = useSelector((state: object | any) => state.dataCart);
+    const dataCart = useSelector((state: checkState) => state.dataCart);
     const onChangeQuantity = (quantity: number, id: string) => {
         if (id && quantity) {
             dispatch(appActions.editQuantityProduct(id, quantity));
@@ -17,14 +27,15 @@ const CartContainer = () => {
             dispatch(appActions.deleteProduct(id));
         }
     };
-    const renderTotalPrice = (dataCart: []) => {
+    const renderTotalPrice = (dataCart: checkDataCart[]) => {
         let totalPrice = 0;
-        dataCart.map((item: object | any) => {
+        dataCart.map((item: checkDataCart) => {
             totalPrice = totalPrice + item.price * item.quantity;
             return totalPrice;
         });
         return functions.formatTotalPrice(totalPrice);
     };
+    
     return (
         <Cart
             dataCart={dataCart}
