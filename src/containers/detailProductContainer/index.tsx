@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { appActions } from '../../actions';
 import DetailProduct from '../../components/detailProduct';
-import { api } from '../../service/api';
 
 interface configData {
     name: string;
@@ -23,6 +22,7 @@ const initDataProduct: configData = {
     id: '',
 };
 const DetailProductContainer = () => {
+    const listProduct = useSelector((state: {dataProduct: configData[]}) => state.dataProduct);
     const [dataProduct, setDataProduct] = useState(initDataProduct);
     const [quantity, setQuantity] = useState(1);
     const params: { id: string } = useParams();
@@ -30,9 +30,6 @@ const DetailProductContainer = () => {
     useEffect(() => {
         const getDataProductById = () => {
             const idProduct: string = params.id;
-            const codeProduct: string = idProduct.split('-')[0];
-            const data: any = api.data;
-            const listProduct: configData[] = data[codeProduct];
             const product = listProduct.filter(
                 (product: configData) => product.id === idProduct
             );
@@ -45,7 +42,7 @@ const DetailProductContainer = () => {
             }
         };
         getDataProductById();
-    }, [params]);
+    }, [listProduct, params.id]);
     const onChangeQuantity = (value: number) => {
         setQuantity(value);
     };

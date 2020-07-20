@@ -52,6 +52,23 @@ interface checkListProduct {
     image: string;
     quantity: number;
 }
+function* getDataProduct() {
+    try {
+        yield put(appActions.showLoading());
+        let response = yield call(api.getDataProduct);
+        if (response.status === 200) {
+            const { data } = response;
+            yield put(appActions.getDataProductSuccess(data));
+            yield put(appActions.hideLoading());
+        } else {
+            yield put(appActions.getDataProductFail());
+            yield put(appActions.hideLoading());
+            notificationError("Lấy dữ liệu lỗi !");
+        }
+    } catch (error) {
+        notificationSuccess("Đã xảy ra lỗi !");
+    }
+}
 function* editQuantityProduct(payload: checkPayloadEditquantity) {
     try {
         const { id, quantity } = payload.payload;
@@ -161,6 +178,7 @@ function* logoutSaga() {
 }
 
 export default function* rootSaga() {
+    yield takeEvery(CONSTANTS.GET_DATA_PRODUCT, getDataProduct);
     yield takeEvery(CONSTANTS.ADD_CART, addCart);
     yield takeLatest(CONSTANTS.EDIT_QUANTITY_PRODUCT, editQuantityProduct);
     yield takeEvery(CONSTANTS.DELETE_PRODUCT, deleteProduct);

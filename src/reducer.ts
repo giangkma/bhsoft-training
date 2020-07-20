@@ -18,13 +18,14 @@ const checkDataCart: checkListProduct[] = [];
 const persistCartConfig = {
     key: 'cart',
     storage,
-    whitelist: ['dataCart', 'token'],
+    whitelist: ['dataCart', 'token',"dataProduct"],
 };
 
 const initialState = {
     dataCart: checkDataCart,
     loading: false,
     token: null,
+    dataProduct: checkDataCart
 };
 
 const rootReducers = (state = initialState, action: any) => {
@@ -49,10 +50,21 @@ const rootReducers = (state = initialState, action: any) => {
                 token: null,
             };
         }
+        case CONSTANTS.GET_DATA_PRODUCT_SUCCESS: {
+            const { data } = action.payload;
+            return {
+                ...state,
+                dataProduct: data
+            };
+        }
+        case CONSTANTS.GET_DATA_PRODUCT_FAIL: {
+            return {
+                ...state,
+                dataProduct: []
+            };
+        }
 
         case CONSTANTS.EDIT_QUANTITY_PRODUCT_SUCCESS: {
-            console.log(action);
-
             const { id, quantity } = action.payload;
             const newDataCart = [...state.dataCart];
             newDataCart.map((item: { id: string; quantity: number }) => {

@@ -13,8 +13,6 @@ const { Content } = Layout;
 interface IProps {
     renderListProduct: Function;
     listProductPhone: checkListProduct[];
-    listProductTablet: checkListProduct[];
-    listProductLaptop: checkListProduct[];
 }
 interface checkListProduct {
     id: string;
@@ -32,7 +30,7 @@ const Home = (props: IProps) => {
     const renderListProduct = (listProduct: checkListProduct[]) => {
         return props.renderListProduct(listProduct);
     };
-    const { listProductPhone, listProductTablet, listProductLaptop } = props;
+    const { listProductPhone} = props;
     return (
         <>
             <PageLayout>
@@ -145,22 +143,6 @@ const Home = (props: IProps) => {
                                 </Link>
                             </div>
                         </div>
-                    </div>
-                    <div className="smathphone-products products">
-                        <div>
-                            <h1>TABLET NỔI BẬT NHẤT</h1>
-                        </div>
-                        <Row gutter={[16, 16]} className="content-products">
-                            {renderListProduct(listProductTablet)}
-                        </Row>
-                    </div>
-                    <div className="smathphone-products products">
-                        <div>
-                            <h1>LAPTOP NỔI BẬT NHẤT</h1>
-                        </div>
-                        <Row gutter={[16, 16]} className="content-products">
-                            {renderListProduct(listProductLaptop)}
-                        </Row>
                     </div>
                 </Content>
             </PageLayout>

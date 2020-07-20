@@ -1,10 +1,11 @@
-import { ThunderboltOutlined } from '@ant-design/icons';
-import { Card, Col, Rate, Skeleton } from 'antd';
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import Home from '../../components/home';
-import { functions } from '../../common/functions';
-import { api } from '../../service/api';
+import { ThunderboltOutlined } from "@ant-design/icons";
+import { Card, Col, Rate, Skeleton } from "antd";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { appActions } from "../../actions";
+import { functions } from "../../common/functions";
+import Home from "../../components/home";
 
 interface checkListProduct {
     id: string;
@@ -17,27 +18,19 @@ interface checkListProduct {
     image: string;
     qty: number;
 }
-const initialListProduct: checkListProduct[] = [];
 const HomeContainer = () => {
-    let [listProductPhone, setListProductPhone] = useState(initialListProduct);
-    let [listProductTablet, setListProductTablet] = useState(initialListProduct);
-    let [listProductLaptop, setListProductLaptop] = useState(initialListProduct);
+    const dispatch = useDispatch();
+    const listProductPhone = useSelector(
+        (state: { dataProduct: checkListProduct[] }) => state.dataProduct
+    );
     useEffect(() => {
-        const getListDataProduct = () => {
-            let dataProductPhone: checkListProduct[] = api.data.phone;
-            let dataProductTablet: checkListProduct[] = api.data.tablet;
-            let dataProductLaptop: checkListProduct[] = api.data.laptop;
-            setListProductPhone(dataProductPhone);
-            setListProductTablet(dataProductTablet);
-            setListProductLaptop(dataProductLaptop);
-        };
-        getListDataProduct();
-    }, []);
+        if(listProductPhone.length === 0) dispatch(appActions.getDataProduct());
+    }, [dispatch, listProductPhone]);
 
     const renderListProduct = (listProduct: checkListProduct[]) => {
         let xhtml = null;
         if (listProduct.length === 0) return <Skeleton active />;
-        xhtml = listProduct.map((item: checkListProduct , index: number) => {
+        xhtml = listProduct.map((item: checkListProduct, index: number) => {
             return (
                 <Col
                     className="content-products-card"
@@ -63,8 +56,8 @@ const HomeContainer = () => {
                                 Xem chi tiết
                             </div>
                             <div className="discount-product">
-                                <ThunderboltOutlined />{' '}
-                                {item.discount === 0 ? null : 'GIẢM'}{' '}
+                                <ThunderboltOutlined />{" "}
+                                {item.discount === 0 ? null : "GIẢM"}{" "}
                                 {functions.formatPrice(item.discount)}
                             </div>
                             <div className="infor-product">
@@ -111,8 +104,6 @@ const HomeContainer = () => {
         <Home
             renderListProduct={renderListProduct}
             listProductPhone={listProductPhone}
-            listProductTablet={listProductTablet}
-            listProductLaptop={listProductLaptop}
         />
     );
 };

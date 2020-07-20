@@ -1,10 +1,9 @@
 import {
     HomeOutlined,
-    LaptopOutlined,
+
     LogoutOutlined,
-    MobileOutlined,
-    ShoppingCartOutlined,
-    TabletOutlined
+
+    ShoppingCartOutlined
 } from "@ant-design/icons";
 import { Badge, Layout, Menu } from "antd";
 import React from "react";
@@ -26,17 +25,19 @@ interface checkListProduct {
     quantity: number;
 }
 interface IProps {
-    match : {
+    match: {
         url: string;
-    }
+    };
 }
 const { Header } = Layout;
 
 const HeaderPage = (props: IProps) => {
     const dispatch = useDispatch();
     const { url } = props.match;
-    const dataCart = useSelector((state: {dataCart: checkListProduct[]}) => state.dataCart);
-    
+    const dataCart = useSelector(
+        (state: { dataCart: checkListProduct[] }) => state.dataCart
+    );
+
     const onLogoutAccount = () => {
         dispatch(appActions.logout());
         localStorage.removeItem("token");
@@ -59,61 +60,6 @@ const HeaderPage = (props: IProps) => {
                     </Menu.Item>
                     <Menu.Item
                         className={
-                            url === "/smathphone"
-                                ? "ant-menu-item-selected"
-                                : ""
-                        }
-                    >
-                        <span className="menu-item">
-                            <span>
-                                <MobileOutlined />
-                            </span>
-                            <span>
-                                <Link to="/smathphone">Điện thoại</Link>
-                            </span>
-                        </span>
-                    </Menu.Item>
-                    <Menu.Item
-                        className={
-                            url === "/tablet" ? "ant-menu-item-selected" : ""
-                        }
-                    >
-                        <span className="menu-item">
-                            <span>
-                                <TabletOutlined />
-                            </span>
-                            <span>
-                                <Link to="/tablet">Tablet</Link>
-                            </span>
-                        </span>
-                    </Menu.Item>
-                    <Menu.Item
-                        className={
-                            url === "/laptop" ? "ant-menu-item-selected" : ""
-                        }
-                    >
-                        <span className="menu-item">
-                            <span>
-                                <LaptopOutlined />
-                            </span>
-                            <span>
-                                <Link to="/laptop">Laptop</Link>
-                            </span>
-                        </span>
-                    </Menu.Item>
-
-                    <Menu.Item>
-                        <span className="menu-item" onClick={onLogoutAccount}>
-                            <span>
-                                <LogoutOutlined />
-                            </span>
-                            <span>
-                                <Link to="/login">Đăng xuất</Link>
-                            </span>
-                        </span>
-                    </Menu.Item>
-                    <Menu.Item
-                        className={
                             url === "/cart" ? "ant-menu-item-selected" : ""
                         }
                     >
@@ -127,6 +73,16 @@ const HeaderPage = (props: IProps) => {
                                 </span>
                             </span>
                         </Badge>
+                    </Menu.Item>
+                    <Menu.Item>
+                        <span className="menu-item" onClick={onLogoutAccount}>
+                            <span>
+                                <LogoutOutlined />
+                            </span>
+                            <span>
+                                <Link to="/login">Đăng xuất</Link>
+                            </span>
+                        </span>
                     </Menu.Item>
                 </Menu>
             </Header>

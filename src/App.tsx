@@ -11,9 +11,6 @@ const { store, persistor } = configStore();
 const LoginPage = lazy(() => import('./pages/loginPage'));
 const CartPage = lazy(() => import('./pages/cartPage'));
 const HomePage = lazy(() => import('./pages/homePage'));
-const SmathPhonePage = lazy(() => import('./pages/smathPhonePage'));
-const TabletPage = lazy(() => import('./pages/tabletPage'));
-const LaptopPage = lazy(() => import('./pages/laptopPage'));
 const DetailPage = lazy(() => import('./pages/detailProductPage'));
 
 const App = () => {
@@ -26,15 +23,6 @@ const App = () => {
                             <Switch>
                                 <Route path="/" exact>
                                     <HomePage />
-                                </Route>
-                                <Route path="/smathphone" exact>
-                                    <SmathPhonePage />
-                                </Route>
-                                <Route path="/tablet" exact>
-                                    <TabletPage />
-                                </Route>
-                                <Route path="/laptop" exact>
-                                    <LaptopPage />
                                 </Route>
                                 <Route path="/product/:id">
                                     <DetailPage />
