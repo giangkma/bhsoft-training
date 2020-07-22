@@ -165,6 +165,9 @@ ul {
     top: 0;
     z-index: 1;
 }
+.swal2-popup.swal2-toast{
+    font-size: 1.4rem!important;
+}
 @media (min-width: 1200px) {
     .ant-col-xl-4 {
         display: block;

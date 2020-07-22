@@ -36,6 +36,9 @@ const HeaderPage = (props: IProps) => {
     const dataCart = useSelector(
         (state: { dataCart: checkListProduct[] }) => state.dataCart
     );
+    const dataProduct = useSelector(
+        (state: { dataProduct: checkListProduct[] }) => state.dataProduct
+    );
 
     const onLogoutAccount = () => {
         dispatch(appActions.logout.request());
@@ -48,7 +51,7 @@ const HeaderPage = (props: IProps) => {
             <Header>
                 <Menu theme="dark" mode="horizontal">
                     <Menu.Item
-                        className={url === "/" ? "ant-menu-item-selected" : ""}
+                        className={url === '/' ? 'ant-menu-item-selected' : ''}
                     >
                         <span className="menu-item">
                             <span>
@@ -60,18 +63,25 @@ const HeaderPage = (props: IProps) => {
                         </span>
                     </Menu.Item>
                     <Menu.Item>
-                        <span className="menu-item">
-                            <span>
-                                <PlusOutlined />
+                        <Badge count={dataProduct.length}>
+                            <span className="menu-item">
+                                <span>
+                                    <PlusOutlined />
+                                </span>
+                                <span>
+                                    <Link
+                                        to="#"
+                                        onClick={onShowModalAddProduct}
+                                    >
+                                        Thêm sản phẩm
+                                    </Link>
+                                </span>
                             </span>
-                            <span>
-                                <Link to="#" onClick={onShowModalAddProduct} >Thêm sản phẩm</Link>
-                            </span>
-                        </span>
+                        </Badge>
                     </Menu.Item>
                     <Menu.Item
                         className={
-                            url === "/cart" ? "ant-menu-item-selected" : ""
+                            url === '/cart' ? 'ant-menu-item-selected' : ''
                         }
                     >
                         <Badge count={dataCart.length}>

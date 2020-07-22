@@ -16,3 +16,27 @@
 .button-actions > button{
     margin-left: 1rem;
 }
+.ant-upload-picture-card-wrapper {
+    display: flex!important;
+    width: 100%;
+    align-items: center!important;
+    justify-content: center!important;
+    margin-bottom: 1rem;
+}
+.button-actions.upload{
+    margin-bottom: 24px;
+    font-size: 2rem;
+    display: flex;
+    justify-content: flex-end;
+}
+.button-actions.upload button{
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center
+}
+progress {
+    width: 100%;
+}
+.ant-form-item{
+    margin-bottom: 15px!important;
+}

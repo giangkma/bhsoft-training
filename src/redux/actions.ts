@@ -28,7 +28,23 @@ export const appActions = {
         CONSTANTS.ADD_CART_FAIL
     )<
         { data: checkData; quantity: number },
-        { data?: checkData; checkIndexProduct?: number; quantity: number },
+        {
+            data?: checkData;
+            checkIndexProduct?: number;
+            quantity: number;
+        },
+        undefined
+    >(),
+
+    uploadProduct: createAsyncAction(
+        CONSTANTS.UPLOAD_PRODUCT,
+        CONSTANTS.UPLOAD_PRODUCT_SUCCESS,
+        CONSTANTS.UPLOAD_PRODUCT_FAIL
+    )<
+        { data: checkData},
+        {
+            data: checkData;
+        },
         undefined
     >(),
 
@@ -36,7 +52,11 @@ export const appActions = {
         CONSTANTS.EDIT_QUANTITY_PRODUCT,
         CONSTANTS.EDIT_QUANTITY_PRODUCT_SUCCESS,
         CONSTANTS.EDIT_QUANTITY_PRODUCT_FAIL
-    )<{ id: string; quantity: number }, { id: string; quantity: number }, undefined>(),
+    )<
+        { id: string; quantity: number },
+        { id: string; quantity: number },
+        undefined
+    >(),
 
     deleteProduct: createAsyncAction(
         CONSTANTS.DELETE_PRODUCT,

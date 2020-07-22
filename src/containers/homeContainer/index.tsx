@@ -24,8 +24,8 @@ const HomeContainer = () => {
         (state: { dataProduct: checkListProduct[] }) => state.dataProduct
     );
     useEffect(() => {
-        if(listProductPhone.length === 0) dispatch(appActions.getDataProduct.request());
-    }, [dispatch, listProductPhone]);
+        dispatch(appActions.getDataProduct.request());
+    }, [dispatch]);
 
     const renderListProduct = () => {
         let xhtml = null;

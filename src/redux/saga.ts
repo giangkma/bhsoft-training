@@ -1,10 +1,10 @@
 import {
     call,
-    delay,
     put,
     select,
     takeEvery,
     takeLatest,
+    delay,
 } from "redux-saga/effects";
 import { appActions } from "./actions";
 import * as CONSTANTS from "./constants";
@@ -65,6 +65,26 @@ function* getDataProduct() {
         }
     } catch (error) {
         notificationSuccess("Đã xảy ra lỗi !");
+    }
+}
+function* uploadProduct(payload: any) {
+    try {
+        yield put(appActions.showLoading());
+        const data = payload.payload;
+        let response = yield call(api.addProductApi, data);
+        if (response.status === 201) {
+            yield delay(400);
+            const { data } = response;
+            yield put(appActions.uploadProduct.success(data));
+            yield put(appActions.hideLoading());
+            notificationSuccess('Upload thành công !');
+        } else {
+            yield put(appActions.uploadProduct.failure());
+            yield put(appActions.hideLoading());
+            notificationError('Upload dữ liệu không thành công !');
+        }
+    } catch (error) {
+        notificationError('Đã xảy ra lỗi !');
     }
 }
 function* editQuantityProduct(payload: checkPayloadEditquantity) {
@@ -182,4 +202,5 @@ export default function* rootSaga() {
     yield takeEvery(CONSTANTS.DELETE_PRODUCT, deleteProduct);
     yield takeEvery(CONSTANTS.LOGIN, loginSaga);
     yield takeEvery(CONSTANTS.LOGOUT, logoutSaga);
+    yield takeEvery(CONSTANTS.UPLOAD_PRODUCT, uploadProduct);
 }

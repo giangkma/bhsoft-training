@@ -7,13 +7,15 @@ import './App.css';
 import GlobalLoading from './common/globalLoading';
 import ModalAddContainer from "./containers/modalAddContainer";
 import configStore from './redux/store';
+import './firebaseConnect';
+
+
 const { store, persistor } = configStore();
 
 const LoginPage = lazy(() => import('./pages/loginPage'));
 const CartPage = lazy(() => import('./pages/cartPage'));
 const HomePage = lazy(() => import('./pages/homePage'));
 const DetailPage = lazy(() => import('./pages/detailProductPage'));
-
 const App = () => {
     return (
         <>

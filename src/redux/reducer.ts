@@ -21,7 +21,7 @@ const listProduct: checkListProduct[] = [];
 const persistCartConfig = {
     key: "cart",
     storage,
-    whitelist: ["dataCart", "token", "dataProduct"],
+    whitelist: ["dataCart", "token"],
 };
 
 const token = createReducer(null)
@@ -113,7 +113,21 @@ const dataProduct = createReducer(listProduct)
     )
     .handleAction(appActions.getDataProduct.failure, (state: []) => {
         return state;
-    });
+    })
+    .handleAction(
+        appActions.uploadProduct.success,
+        (state: checkListProduct[], action: { payload: checkListProduct }) => {
+            const data = action.payload;
+            const newListProduct = [...state];
+            return [data, ...newListProduct];
+        }
+    )
+    .handleAction(
+        appActions.uploadProduct.failure,
+        (state: checkListProduct[]) => {
+            return state;
+        }
+    );
 
 const loading = createReducer(false)
     .handleAction(appActions.showLoading, (state: boolean) => true)
