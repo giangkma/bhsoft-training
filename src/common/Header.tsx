@@ -1,9 +1,8 @@
 import {
     HomeOutlined,
-
     LogoutOutlined,
-
-    ShoppingCartOutlined
+    PlusOutlined,
+    ShoppingCartOutlined,
 } from "@ant-design/icons";
 import { Badge, Layout, Menu } from "antd";
 import React from "react";
@@ -41,6 +40,9 @@ const HeaderPage = (props: IProps) => {
     const onLogoutAccount = () => {
         dispatch(appActions.logout.request());
     };
+    const onShowModalAddProduct = () => {
+        dispatch(appActions.showModal());
+    }
     return (
         <div>
             <Header>
@@ -54,6 +56,16 @@ const HeaderPage = (props: IProps) => {
                             </span>
                             <span>
                                 <Link to="/">Trang chủ</Link>
+                            </span>
+                        </span>
+                    </Menu.Item>
+                    <Menu.Item>
+                        <span className="menu-item">
+                            <span>
+                                <PlusOutlined />
+                            </span>
+                            <span>
+                                <Link to="#" onClick={onShowModalAddProduct} >Thêm sản phẩm</Link>
                             </span>
                         </span>
                     </Menu.Item>

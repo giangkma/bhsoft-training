@@ -1,0 +1,18 @@
+.ant-modal-body {
+    display: flex;
+}
+.ant-modal-body > form {
+    width: 100%;
+}
+.ant-input-number{
+    width: 100%!important;
+}
+.ant-modal-footer{
+    display: none;
+}
+.button-actions {
+    text-align: right;
+}
+.button-actions > button{
+    margin-left: 1rem;
+}

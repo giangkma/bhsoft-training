@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux';
-import { persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
-import { createReducer } from 'typesafe-actions';
-import { appActions } from './actions';
+import { combineReducers } from "redux";
+import { persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import { createReducer } from "typesafe-actions";
+import { appActions } from "./actions";
 
 interface checkListProduct {
     id: string;
@@ -19,9 +19,9 @@ interface checkListProduct {
 const listProduct: checkListProduct[] = [];
 
 const persistCartConfig = {
-    key: 'cart',
+    key: "cart",
     storage,
-    whitelist: ['dataCart', 'token', 'dataProduct'],
+    whitelist: ["dataCart", "token", "dataProduct"],
 };
 
 const token = createReducer(null)
@@ -106,7 +106,7 @@ const dataCart = createReducer(listProduct)
 const dataProduct = createReducer(listProduct)
     .handleAction(
         appActions.getDataProduct.success,
-        (state: checkListProduct[], action: {payload: checkListProduct}) => {
+        (state: checkListProduct[], action: { payload: checkListProduct }) => {
             const data = action.payload;
             return data;
         }
@@ -119,10 +119,15 @@ const loading = createReducer(false)
     .handleAction(appActions.showLoading, (state: boolean) => true)
     .handleAction(appActions.hideLoading, (state: boolean) => false);
 
+const showModal = createReducer(false)
+    .handleAction(appActions.showModal, (state: boolean) => true)
+    .handleAction(appActions.hideModal, (state: boolean) => false);
+
 const rootReducers = combineReducers({
     dataProduct,
     dataCart,
     token,
     loading,
+    showModal
 });
 export default persistReducer(persistCartConfig, rootReducers);

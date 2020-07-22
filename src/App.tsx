@@ -1,11 +1,12 @@
+import { Skeleton } from 'antd';
 import React, { lazy, Suspense } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
-import GlobalLoading from './common/globalLoading';
-import configStore from './redux/store';
 import './App.css';
-import { Skeleton } from 'antd';
+import GlobalLoading from './common/globalLoading';
+import ModalAddContainer from "./containers/modalAddContainer";
+import configStore from './redux/store';
 const { store, persistor } = configStore();
 
 const LoginPage = lazy(() => import('./pages/loginPage'));
@@ -35,6 +36,7 @@ const App = () => {
                                 </Route>
                             </Switch>
                             <GlobalLoading />
+                            <ModalAddContainer />
                         </Suspense>
                     </Router>
                 </PersistGate>

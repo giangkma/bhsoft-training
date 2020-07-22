@@ -51,7 +51,7 @@ const notificationError = (message: string) => {
     });
 };
 
-const randomId = () => {
+const random = () => {
     return Math.floor(Math.random() * 10000);
 };
 
@@ -87,7 +87,7 @@ const onCheckPassword = (password: string) => {
 }
 export const functions = {
     formatPrice,
-    randomId,
+    random,
     notificationSuccess,
     notificationError,
     formatTotalPrice,

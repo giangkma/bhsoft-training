@@ -52,4 +52,7 @@ export const appActions = {
 
     showLoading: createAction(CONSTANTS.SHOW_LOADING)(),
     hideLoading: createAction(CONSTANTS.HIDE_LOADING)(),
+
+    showModal: createAction(CONSTANTS.SHOW_MODAL_ADD)(),
+    hideModal: createAction(CONSTANTS.HIDE_MODAL_ADD)(),
 };
