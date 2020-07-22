@@ -3,7 +3,7 @@ import { Card, Col, Rate, Skeleton } from "antd";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { appActions } from "../../actions";
+import { appActions } from "../../redux/actions";
 import { functions } from "../../common/functions";
 import Home from "../../components/home";
 
@@ -24,13 +24,13 @@ const HomeContainer = () => {
         (state: { dataProduct: checkListProduct[] }) => state.dataProduct
     );
     useEffect(() => {
-        if(listProductPhone.length === 0) dispatch(appActions.getDataProduct());
+        if(listProductPhone.length === 0) dispatch(appActions.getDataProduct.request());
     }, [dispatch, listProductPhone]);
 
-    const renderListProduct = (listProduct: checkListProduct[]) => {
+    const renderListProduct = () => {
         let xhtml = null;
-        if (listProduct.length === 0) return <Skeleton active />;
-        xhtml = listProduct.map((item: checkListProduct, index: number) => {
+        if (listProductPhone.length === 0) return <Skeleton active />;
+        xhtml = listProductPhone.map((item: checkListProduct, index: number) => {
             return (
                 <Col
                     className="content-products-card"
@@ -103,7 +103,6 @@ const HomeContainer = () => {
     return (
         <Home
             renderListProduct={renderListProduct}
-            listProductPhone={listProductPhone}
         />
     );
 };

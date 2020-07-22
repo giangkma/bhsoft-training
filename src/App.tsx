@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 import GlobalLoading from './common/globalLoading';
-import configStore from './store';
+import configStore from './redux/store';
 import './App.css';
 import { Skeleton } from 'antd';
 const { store, persistor } = configStore();

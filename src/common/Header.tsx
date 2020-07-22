@@ -9,7 +9,7 @@ import { Badge, Layout, Menu } from "antd";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
-import { appActions } from "../actions";
+import { appActions } from "../redux/actions";
 import "./style.css";
 
 interface checkListProduct {
@@ -39,8 +39,7 @@ const HeaderPage = (props: IProps) => {
     );
 
     const onLogoutAccount = () => {
-        dispatch(appActions.logout());
-        localStorage.removeItem("token");
+        dispatch(appActions.logout.request());
     };
     return (
         <div>

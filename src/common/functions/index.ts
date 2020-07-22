@@ -51,11 +51,8 @@ const notificationError = (message: string) => {
     });
 };
 
-const randomNumber = () => {
-    return Math.floor(Math.random() * 100) + 5;
-};
-const randomRate = () => {
-    return Math.floor(Math.random() * 5);
+const randomId = () => {
+    return Math.floor(Math.random() * 10000);
 };
 
 const onCheckEmail = (email: string) => {
@@ -90,8 +87,7 @@ const onCheckPassword = (password: string) => {
 }
 export const functions = {
     formatPrice,
-    randomNumber,
-    randomRate,
+    randomId,
     notificationSuccess,
     notificationError,
     formatTotalPrice,

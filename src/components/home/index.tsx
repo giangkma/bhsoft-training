@@ -12,7 +12,6 @@ const { Content } = Layout;
 
 interface IProps {
     renderListProduct: Function;
-    listProductPhone: checkListProduct[];
 }
 interface checkListProduct {
     id: string;
@@ -27,10 +26,9 @@ interface checkListProduct {
 }
 
 const Home = (props: IProps) => {
-    const renderListProduct = (listProduct: checkListProduct[]) => {
-        return props.renderListProduct(listProduct);
+    const renderListProduct = () => {
+        return props.renderListProduct();
     };
-    const { listProductPhone} = props;
     return (
         <>
             <PageLayout>
@@ -129,7 +127,7 @@ const Home = (props: IProps) => {
                             <h1>ĐIỆN THOẠI NỔI BẬT NHẤT</h1>
                         </div>
                         <Row gutter={[16, 16]} className="content-products">
-                            {renderListProduct(listProductPhone)}
+                            {renderListProduct()}
                         </Row>
                     </div>
                     <div className="row">

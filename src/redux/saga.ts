@@ -8,8 +8,8 @@ import {
 } from "redux-saga/effects";
 import { appActions } from "./actions";
 import * as CONSTANTS from "./constants";
-import { functions } from "./common/functions";
-import { api } from "./service/api";
+import { functions } from "../common/functions";
+import { api } from "../service/api";
 
 const { notificationSuccess, notificationError } = functions;
 
@@ -22,9 +22,7 @@ interface checkPayloadEditquantity {
 }
 interface checkPayloadDeleteProduct {
     type: string;
-    payload: {
-        id: string;
-    };
+    payload: string
 }
 interface checkPayloadAddProduct {
     type: string;
@@ -58,10 +56,10 @@ function* getDataProduct() {
         let response = yield call(api.getDataProduct);
         if (response.status === 200) {
             const { data } = response;
-            yield put(appActions.getDataProductSuccess(data));
+            yield put(appActions.getDataProduct.success(data));
             yield put(appActions.hideLoading());
         } else {
-            yield put(appActions.getDataProductFail());
+            yield put(appActions.getDataProduct.failure());
             yield put(appActions.hideLoading());
             notificationError("Lấy dữ liệu lỗi !");
         }
@@ -73,9 +71,9 @@ function* editQuantityProduct(payload: checkPayloadEditquantity) {
     try {
         const { id, quantity } = payload.payload;
         if (id && quantity) {
-            yield put(appActions.editQuantityProductSuccess(id, quantity));
+            yield put(appActions.editQuantityProduct.success({id, quantity}));
         } else {
-            yield put(appActions.editQuantityProductFail("error"));
+            yield put(appActions.editQuantityProduct.failure());
         }
     } catch (error) {
         notificationSuccess("Đã xảy ra lỗi !");
@@ -84,12 +82,12 @@ function* editQuantityProduct(payload: checkPayloadEditquantity) {
 function* deleteProduct(payload: checkPayloadDeleteProduct) {
     try {
         yield put(appActions.showLoading());
-        const { id } = payload.payload;
+        const id = payload.payload;
         if (id) {
             const dataCart = yield select(
                 (state: { dataCart: checkListProduct[] }) => state.dataCart
             );
-            let checkIndexProduct: number = 0;
+            let checkIndexProduct: number = -1;
             dataCart.map((item: checkListProduct, index: number) => {
                 if (item.id === id) {
                     checkIndexProduct = index;
@@ -97,14 +95,16 @@ function* deleteProduct(payload: checkPayloadDeleteProduct) {
                 return checkIndexProduct;
             });
             yield delay(700);
-            if (typeof checkIndexProduct === "number") {
-                yield put(appActions.deleteProductSuccess(checkIndexProduct));
+            console.log(dataCart);
+            
+            if (checkIndexProduct !== -1) {
+                yield put(appActions.deleteProduct.success(checkIndexProduct));
                 yield put(appActions.hideLoading());
                 notificationSuccess("Xóa thành công !");
             } else {
-                yield put(appActions.deleteProductFail("error"));
+                yield put(appActions.deleteProduct.failure());
                 yield put(appActions.hideLoading());
-                notificationSuccess("Xóa không thành công !");
+                notificationError("Xóa thất bại !");
             }
         }
     } catch (error) {
@@ -119,26 +119,25 @@ function* addCart(payload: checkPayloadAddProduct) {
             const dataCart = yield select(
                 (state: { dataCart: checkListProduct[] }) => state.dataCart
             );
-            let checkIndexProduct: number = 0;
+            let checkIndexProduct: number = -1;
             dataCart.map((item: checkListProduct, index: number) => {
                 if (item.id === data.id) {
                     checkIndexProduct = index;
                 }
                 return checkIndexProduct;
             });
-
-            if (checkIndexProduct === 0) {
-                yield put(appActions.addCartSuccess(data, quantity));
+            if (checkIndexProduct === -1) {
+                yield put(appActions.addCart.success({data, quantity}));
             } else {
                 yield put(
-                    appActions.addCartSuccess(checkIndexProduct, quantity)
+                    appActions.addCart.success({ checkIndexProduct, quantity})
                 );
             }
             yield delay(700);
             yield put(appActions.hideLoading());
             notificationSuccess("Thêm vào giỏ hàng thành công !");
         } else {
-            yield put(appActions.addCartFail("error"));
+            yield put(appActions.addCart.failure());
             yield put(appActions.hideLoading());
             notificationError("Thêm vào giỏ hàng thất bại !");
         }
@@ -153,14 +152,13 @@ function* loginSaga(payload: checkPayloadLogin) {
         let response = yield call(api.login, user);
         if (response.status === 200) {
             const { token } = response.data.user;
-            localStorage.setItem("token", token);
-            yield put(appActions.loginSuccess(token));
+            yield put(appActions.login.success(token));
             yield put(appActions.hideLoading());
             notificationSuccess(
-                "Đăng nhập thành công ! Chào mừng bạn đến BHSoft App !"
+                "Đăng nhập thành công !"
             );
         } else {
-            yield put(appActions.loginFail());
+            yield put(appActions.login.failure());
             yield put(appActions.hideLoading());
             notificationError("Đăng nhập thất bại !");
         }
@@ -170,7 +168,7 @@ function* loginSaga(payload: checkPayloadLogin) {
 }
 function* logoutSaga() {
     try {
-        yield put(appActions.logoutSuccess());
+        yield put(appActions.logout.success());
         notificationSuccess("Đăng xuất thành công !");
     } catch (error) {
         notificationError("Đã xảy ra lỗi !");

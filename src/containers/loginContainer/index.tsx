@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router";
-import { appActions } from "../../actions";
+import { appActions } from "../../redux/actions";
 import Login from "../../components/login";
 import { functions } from "../../common/functions";
 
@@ -41,13 +41,11 @@ const LoginContainer = (props: IProps) => {
             setError(checkPassword);
         }
         else {
-            let user: object = {
+            dispatch(appActions.login.request({
                 email: email,
                 password: password
-            }
-            dispatch(appActions.login(user));
+            }));
             setTimeout(() => {
-                const token = localStorage.getItem('token');
                 if(token){
                     props.history.push("/");
                 }

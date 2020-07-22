@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { appActions } from '../../actions';
+import { appActions } from '../../redux/actions';
 import DetailProduct from '../../components/detailProduct';
 
 interface configData {
@@ -48,7 +48,7 @@ const DetailProductContainer = () => {
     };
     const addProductToCart = (dataProduct: configData) => {
         const data = dataProduct;
-        dispatch(appActions.addCart(data, quantity));
+        dispatch(appActions.addCart.request({data, quantity}));
     };
     const itemsBreadcrumb: any = ['Home', 'Điện thoại', `${dataProduct.name}`];
 
