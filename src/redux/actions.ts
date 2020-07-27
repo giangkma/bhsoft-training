@@ -69,7 +69,7 @@ export const appActions = {
         CONSTANTS.GET_DATA_PRODUCT,
         CONSTANTS.GET_DATA_PRODUCT_SUCCESS,
         CONSTANTS.GET_DATA_PRODUCT_FAIL
-    )<undefined, {}, undefined>(),
+    )<undefined, checkData[], undefined>(),
 
     showLoading: createAction(CONSTANTS.SHOW_LOADING)(),
     hideLoading: createAction(CONSTANTS.HIDE_LOADING)(),

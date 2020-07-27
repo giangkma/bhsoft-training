@@ -50,7 +50,7 @@ interface checkListProduct {
     image: string;
     quantity: number;
 }
-export function* getDataProduct() {
+function* getDataProduct() {
     try {
         yield put(appActions.showLoading());
         let response = yield call(api.getDataProduct);
