@@ -3,9 +3,6 @@
     "jsx": "react",
     "target": "es6",
     "module": "esnext",
-    // "lib": [
-    //   "es2015"
-    // ],
     "strict": true,
     "declaration": true,
     "outDir": "dist",
@@ -18,7 +15,12 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ]
   },
   "include": [
     "src/**/*"

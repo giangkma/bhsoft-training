@@ -14,6 +14,8 @@ interface IProps {
     }
 }
 const LoginContainer = (props: IProps) => {
+    console.log("LoginContainer rerender");
+    
     const dispatch = useDispatch();
     const token = useSelector((state: checkState) => state.token);
 
@@ -31,7 +33,7 @@ const LoginContainer = (props: IProps) => {
         }
     }, [props.history, token]);
 
-    const submitForm = (e: any) => {
+    const submitForm = async (e: any) => {
         e.preventDefault();
         let checkEmail = functions.onCheckEmail(email);
         let checkPassword = functions.onCheckPassword(password);
@@ -41,15 +43,13 @@ const LoginContainer = (props: IProps) => {
             setError(checkPassword);
         }
         else {
-            dispatch(appActions.login.request({
+            await dispatch(appActions.login.request({
                 email: email,
                 password: password
             }));
-            setTimeout(() => {
-                if(token){
-                    props.history.push("/");
-                }
-            },1500);
+            if (token) {
+                props.history.push("/");
+            }
         }
     };
     return (
