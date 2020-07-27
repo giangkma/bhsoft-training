@@ -3,7 +3,6 @@ import HomeContainer from "../../containers/homeContainer";
 import './style.css';
 
 const HomePage = () => {
-    
     return (
         <HomeContainer />
     );

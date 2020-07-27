@@ -1,8 +1,8 @@
 import { InputNumber, Layout, Rate } from 'antd';
 import React from 'react';
 import BreadcrumbPage from '../../common/BreadcrumbPage';
-import PageLayout from '../../common/Pagelayout';
 import { functions } from '../../common/functions';
+import PageLayout from '../../common/Pagelayout';
 import './style.css';
 
 const { Content } = Layout;

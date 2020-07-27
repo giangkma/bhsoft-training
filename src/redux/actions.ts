@@ -1,5 +1,6 @@
-import * as CONSTANTS from './constants';
-import { createAction, createAsyncAction } from 'typesafe-actions';
+import * as CONSTANTS from "./constants";
+import { createAction, createAsyncAction } from "typesafe-actions";
+
 interface checkData {
     name: string;
     image: string;
@@ -41,7 +42,7 @@ export const appActions = {
         CONSTANTS.UPLOAD_PRODUCT_SUCCESS,
         CONSTANTS.UPLOAD_PRODUCT_FAIL
     )<
-        { data: checkData},
+        { data: checkData },
         {
             data: checkData;
         },
@@ -68,7 +69,7 @@ export const appActions = {
         CONSTANTS.GET_DATA_PRODUCT,
         CONSTANTS.GET_DATA_PRODUCT_SUCCESS,
         CONSTANTS.GET_DATA_PRODUCT_FAIL
-    )<undefined, [], undefined>(),
+    )<undefined, {}, undefined>(),
 
     showLoading: createAction(CONSTANTS.SHOW_LOADING)(),
     hideLoading: createAction(CONSTANTS.HIDE_LOADING)(),

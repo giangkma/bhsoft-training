@@ -1,6 +1,6 @@
 import { ThunderboltOutlined } from "@ant-design/icons";
 import { Card, Col, Rate, Skeleton } from "antd";
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { appActions } from "../../redux/actions";
@@ -26,84 +26,81 @@ const HomeContainer = () => {
     useEffect(() => {
         dispatch(appActions.getDataProduct.request());
     }, [dispatch]);
-
-    const renderListProduct = () => {
+    const renderListProduct = useCallback(() => {
         let xhtml = null;
         if (listProductPhone.length === 0) return <Skeleton active />;
-        xhtml = listProductPhone.map((item: checkListProduct, index: number) => {
-            return (
-                <Col
-                    className="content-products-card"
-                    xs={12}
-                    sm={8}
-                    md={6}
-                    lg={6}
-                    xl={4}
-                    key={index}
-                >
-                    <Link to={`product/${item.id}`}>
-                        <Card
-                            hoverable
-                            cover={
-                                <img
-                                    alt="example"
-                                    className="image-product"
-                                    src={item.image}
-                                />
-                            }
-                        >
-                            <div className="animation-hover-card">
-                                Xem chi tiết
-                            </div>
-                            <div className="discount-product">
-                                <ThunderboltOutlined />{" "}
-                                {item.discount === 0 ? null : "GIẢM"}{" "}
-                                {functions.formatPrice(item.discount)}
-                            </div>
-                            <div className="infor-product">
-                                <h3 className="infor-product-name">
-                                    {item.name}
-                                </h3>
-                                <div className="infor-product-price">
-                                    <strong>
-                                        {functions.formatPrice(item.price)}
-                                    </strong>
-                                    <span>
-                                        {item.discount === 0
-                                            ? null
-                                            : functions.formatPrice(
-                                                  item.price + item.discount
-                                              )}
-                                    </span>
+        xhtml = listProductPhone.map(
+            (item: checkListProduct, index: number) => {
+                return (
+                    <Col
+                        className="content-products-card"
+                        xs={12}
+                        sm={8}
+                        md={6}
+                        lg={6}
+                        xl={4}
+                        key={index}
+                    >
+                        <Link to={`product/${item.id}`}>
+                            <Card
+                                hoverable
+                                cover={
+                                    <img
+                                        alt="example"
+                                        className="image-product"
+                                        src={item.image}
+                                    />
+                                }
+                            >
+                                <div className="animation-hover-card">
+                                    Xem chi tiết
                                 </div>
-                                <div className="rate-product">
-                                    <span>
-                                        <Rate
-                                            disabled
-                                            allowHalf
-                                            defaultValue={item.rate}
-                                        />
-                                    </span>
-                                    <span className="rate-product-comment">
-                                        {item.numberOfReviews} Đánh giá
-                                    </span>
+                                <div className="discount-product">
+                                    <ThunderboltOutlined />{" "}
+                                    {item.discount === 0 ? null : "GIẢM"}{" "}
+                                    {functions.formatPrice(item.discount)}
                                 </div>
-                                <div className="infor-product-description">
-                                    {item.description}
+                                <div className="infor-product">
+                                    <h3 className="infor-product-name">
+                                        {item.name}
+                                    </h3>
+                                    <div className="infor-product-price">
+                                        <strong>
+                                            {functions.formatPrice(item.price)}
+                                        </strong>
+                                        <span>
+                                            {item.discount === 0
+                                                ? null
+                                                : functions.formatPrice(
+                                                      item.price + item.discount
+                                                  )}
+                                        </span>
+                                    </div>
+                                    <div className="rate-product">
+                                        <span>
+                                            <Rate
+                                                disabled
+                                                allowHalf
+                                                defaultValue={item.rate}
+                                            />
+                                        </span>
+                                        <span className="rate-product-comment">
+                                            {item.numberOfReviews} Đánh giá
+                                        </span>
+                                    </div>
+                                    <div className="infor-product-description">
+                                        {item.description}
+                                    </div>
                                 </div>
-                            </div>
-                        </Card>
-                    </Link>
-                </Col>
-            );
-        });
+                            </Card>
+                        </Link>
+                    </Col>
+                );
+            }
+        );
         return xhtml;
-    };
+    }, [listProductPhone.length]);
 
-    return (
-        <Home
-            renderListProduct={renderListProduct}
-        />
-    );
+    return <Home renderListProduct={renderListProduct} />;
 };
-export default React.memo(HomeContainer);
+export default HomeContainer;

@@ -53,14 +53,14 @@ const ModalAddContainer = () => {
                 .put(fileImage);
             upload.on(
                 'state_changed',
-                (snapshot) => {
+                (snapshot: any) => {
                     //progress
                     const progressFileImage = Math.round(
                         (snapshot.bytesTransferred / snapshot.totalBytes) * 100
                     );
                     setProgressFileImage(progressFileImage);
                 },
-                (error) => {
+                (error: any): void => {
                     console.log(error);
                 },
                 () => {
@@ -69,7 +69,7 @@ const ModalAddContainer = () => {
                         .ref(`Images`)
                         .child(fileImage.name)
                         .getDownloadURL()
-                        .then((urlFileImage) => {
+                        .then((urlFileImage: string) => {
                             setUrlFileImage(urlFileImage);
                         });
                 }
