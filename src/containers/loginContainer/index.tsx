@@ -14,8 +14,6 @@ interface IProps {
     }
 }
 const LoginContainer = (props: IProps) => {
-    console.log("LoginContainer rerender");
-    
     const dispatch = useDispatch();
     const token = useSelector((state: checkState) => state.token);
 
