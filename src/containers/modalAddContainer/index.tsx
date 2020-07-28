@@ -9,7 +9,6 @@ const initState: any = {};
 
 const ModalAddContainer = () => {
     const [fileImage, setFileImage] = useState(initState);
-    const [urlFileImage, setUrlFileImage] = useState('');
     const [progressFileImage, setProgressFileImage] = useState(0);
     const [showProgress, setShowProgress] = useState(false);
     const dispatch = useDispatch();
@@ -18,8 +17,9 @@ const ModalAddContainer = () => {
     );
 
     const submitForm = async (values: any) => {
+        const urlFileImage = await uploadFileImage();
         if (!urlFileImage) {
-            functions.notificationError('Hãy upload ảnh trước !');
+            functions.notificationError('Đã xảy ra lỗi khi upload hình ảnh !');
         } else {
             dispatch(appActions.hideModal());
             const formUpload: any = {};
@@ -47,6 +47,7 @@ const ModalAddContainer = () => {
             fileImage.name.split('.')[1] === 'jpg' ||
             fileImage.name.split('.')[1] === 'png'
         ) {
+            let url: string = '';
             setShowProgress(true);
             const upload = storage
                 .ref(`Images/${fileImage.name}`)
@@ -70,10 +71,16 @@ const ModalAddContainer = () => {
                         .child(fileImage.name)
                         .getDownloadURL()
                         .then((urlFileImage: string) => {
-                            setUrlFileImage(urlFileImage);
+                            url = urlFileImage;
+                            return url;
                         });
                 }
             );
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve(url);
+                }, 2000);
+            });
         } else {
             functions.notificationError(
                 'Hãy chọn file có định dạng .jpg hoặc .png !'
@@ -89,7 +96,6 @@ const ModalAddContainer = () => {
         <ModalAdd
             submitForm={submitForm}
             selectImage={selectImage}
-            uploadFileImage={uploadFileImage}
             handleCancel={handleCancel}
             showModal={showModal}
             showProgress={showProgress}

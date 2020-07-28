@@ -1,10 +1,8 @@
-import { CloudUploadOutlined } from '@ant-design/icons';
 import { Button, Form, Input, InputNumber, Modal } from 'antd';
 import React from 'react';
 import './style.css';
 
 interface IProps {
-    uploadFileImage: Function;
     selectImage: Function;
     handleCancel: Function;
     showModal: boolean;
@@ -38,9 +36,6 @@ const ModalAdd = (props: IProps) => {
     const selectImage = (e: any) => {
         props.selectImage(e);
     };
-    const uploadFileImage = () => {
-        props.uploadFileImage();
-    };
 
     const handleCancel = () => {
         props.handleCancel();
@@ -72,16 +67,6 @@ const ModalAdd = (props: IProps) => {
                             ) : null}
                         </div>
                     </Form.Item>
-
-                    <div className="button-actions upload">
-                        <Button
-                            type="primary"
-                            icon={<CloudUploadOutlined />}
-                            onClick={uploadFileImage}
-                        >
-                            Upload Image
-                        </Button>
-                    </div>
                     <Form.Item
                         name="name"
                         label="Tên"
