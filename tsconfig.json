@@ -1,4 +1,4 @@
-{fff
+{
   "compilerOptions": {
     "jsx": "react",
     "target": "es6",
